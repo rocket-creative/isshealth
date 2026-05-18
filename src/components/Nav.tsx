@@ -207,7 +207,7 @@ export function Nav() {
         {/* Main nav */}
         <nav aria-label="Main navigation" className="border-b border-stone-200">
           {/* Mobile row */}
-          <div className="lg:hidden px-5 h-20 flex items-center justify-between">
+          <div className="xl:hidden px-5 h-20 flex items-center justify-between">
             <Link href="/" className="flex items-center" aria-label="Institute For Spine Surgery home">
               <Image
                 src="/images/iss-logo.png"
@@ -229,20 +229,24 @@ export function Nav() {
             </button>
           </div>
 
-          {/* Desktop row */}
-          <div className="hidden lg:flex items-center justify-between px-12 h-28">
-            <Link href="/" className="flex items-center" aria-label="Institute For Spine Surgery home">
-              <Image
-                src="/images/iss-logo.png"
-                alt="Institute For Spine Surgery"
-                width={1848}
-                height={608}
-                sizes="320px"
-                className="h-24 w-auto"
-                priority
-              />
-            </Link>
-            <div className="flex items-center gap-8 h-full">
+          {/* Desktop: 2-row stacked layout */}
+          <div className="hidden xl:block px-12">
+            {/* Row 1 — Logo */}
+            <div className="flex items-center justify-center py-5 border-b border-stone-100">
+              <Link href="/" className="flex items-center" aria-label="Institute For Spine Surgery home">
+                <Image
+                  src="/images/iss-logo.png"
+                  alt="Institute For Spine Surgery"
+                  width={1848}
+                  height={608}
+                  sizes="300px"
+                  className="h-20 w-auto"
+                  priority
+                />
+              </Link>
+            </div>
+            {/* Row 2 — Nav links */}
+            <div className="flex items-center justify-center gap-8 h-14">
               <Dropdown id="about" label="About Us" links={aboutLinks} />
               <Dropdown id="lumbar" label="Lumbar Center" links={lumbarLinks} />
               <Dropdown id="cervical" label="Cervical Center" links={cervicalLinks} />
