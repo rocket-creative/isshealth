@@ -125,15 +125,15 @@ export function Nav() {
       aria-modal="true"
       aria-label="Mobile navigation"
     >
-      <div className="pt-safe-top px-5 h-16 flex items-center justify-between border-b border-stone-200">
+      <div className="pt-safe-top px-5 h-20 flex items-center justify-between border-b border-stone-200">
         <Link href="/" className="flex items-center" aria-label="Institute For Spine Surgery home" onClick={() => setOpen(false)}>
           <Image
             src="/images/iss-logo.png"
             alt="Institute For Spine Surgery"
             width={1848}
             height={608}
-            sizes="180px"
-            className="h-9 w-auto"
+            sizes="220px"
+            className="h-16 w-auto"
             priority
           />
         </Link>
@@ -207,15 +207,15 @@ export function Nav() {
         {/* Main nav */}
         <nav aria-label="Main navigation" className="border-b border-stone-200">
           {/* Mobile row */}
-          <div className="lg:hidden px-5 h-16 flex items-center justify-between">
+          <div className="lg:hidden px-5 h-20 flex items-center justify-between">
             <Link href="/" className="flex items-center" aria-label="Institute For Spine Surgery home">
               <Image
                 src="/images/iss-logo.png"
                 alt="Institute For Spine Surgery"
                 width={1848}
                 height={608}
-                sizes="160px"
-                className="h-8 w-auto"
+                sizes="220px"
+                className="h-16 w-auto"
                 priority
               />
             </Link>
@@ -230,15 +230,15 @@ export function Nav() {
           </div>
 
           {/* Desktop row */}
-          <div className="hidden lg:flex items-center justify-between px-12 h-20">
+          <div className="hidden lg:flex items-center justify-between px-12 h-28">
             <Link href="/" className="flex items-center" aria-label="Institute For Spine Surgery home">
               <Image
                 src="/images/iss-logo.png"
                 alt="Institute For Spine Surgery"
                 width={1848}
                 height={608}
-                sizes="220px"
-                className="h-12 w-auto"
+                sizes="320px"
+                className="h-24 w-auto"
                 priority
               />
             </Link>
