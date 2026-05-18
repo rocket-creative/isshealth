@@ -229,10 +229,10 @@ export function Nav() {
             </button>
           </div>
 
-          {/* Desktop: 2-row stacked layout */}
+          {/* Desktop: 2-row layout */}
           <div className="hidden xl:block px-12">
-            {/* Row 1 — Logo */}
-            <div className="flex items-center justify-center py-5 border-b border-stone-100">
+            {/* Row 1 — Logo left | phone center | CTA right */}
+            <div className="flex items-center justify-between py-5 border-b border-stone-100">
               <Link href="/" className="flex items-center" aria-label="Institute For Spine Surgery home">
                 <Image
                   src="/images/iss-logo.png"
@@ -244,9 +244,22 @@ export function Nav() {
                   priority
                 />
               </Link>
+              <a
+                href="tel:+19149483008"
+                className="text-iss-ink hover:text-iss-teal font-nav text-sm font-bold tracking-wide transition-colors"
+              >
+                (914) 948 3008
+              </a>
+              <Link
+                href="/appointments/"
+                className="btn-arrow inline-flex items-center gap-2 bg-iss-teal text-white px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] hover:bg-iss-teal-dark transition-colors"
+              >
+                <span>Appointments</span>
+                <span className="arrow">→</span>
+              </Link>
             </div>
             {/* Row 2 — Nav links */}
-            <div className="flex items-center justify-center gap-8 h-14">
+            <div className="flex items-center justify-between gap-8 h-12">
               <Dropdown id="about" label="About Us" links={aboutLinks} />
               <Dropdown id="lumbar" label="Lumbar Center" links={lumbarLinks} />
               <Dropdown id="cervical" label="Cervical Center" links={cervicalLinks} />
@@ -259,13 +272,6 @@ export function Nav() {
                   {l.label}
                 </Link>
               ))}
-              <Link
-                href="/appointments/"
-                className="btn-arrow inline-flex items-center gap-2 bg-iss-teal text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] hover:bg-iss-teal-dark transition-colors"
-              >
-                <span>Appointments</span>
-                <span className="arrow">→</span>
-              </Link>
             </div>
           </div>
         </nav>
