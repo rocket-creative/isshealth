@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema, serviceSchema } from '@/lib/schema'
+import { buildMetadata, toCanonicalUrl } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
+import { JsonLd, medicalServiceSchema } from '@/lib/schema'
 import { LandingHero } from '@/components/LandingHero'
 import { AppointmentForm } from '@/components/AppointmentForm'
 import { AnimateOnScroll } from '@/components/AnimateOnScroll'
 import { BottomCta } from '@/components/ConditionLayout'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Cervical Spine and Neck Surgery Specialists | West Harrison, NY',
-  description:
-    'Expert cervical spine surgery in West Harrison, NY. ACDF, disc replacement, stenosis, radiculopathy. Board certified neurosurgery. Over 4,000 surgeries.',
+  title: PAGE_SEO.cervicalSpineLanding.title,
+  description: PAGE_SEO.cervicalSpineLanding.description,
   path: '/cervical-spine/',
 })
 
@@ -27,15 +28,11 @@ export default function CervicalSpineLandingPage() {
     <>
       <JsonLd
         data={[
-          breadcrumbSchema([
-            { name: 'Home', url: SITE_URL },
-            { name: 'Cervical Spine', url: `${SITE_URL}/cervical-spine/` },
-          ]),
-          serviceSchema({
+          generateBreadcrumbSchema('/cervical-spine/'),
+          medicalServiceSchema({
             name: 'Cervical Spine Surgery',
-            description:
-              'Cervical spine and neck surgery including anterior cervical discectomy and fusion, disc replacement, and decompression.',
-            url: `${SITE_URL}/cervical-spine/`,
+            description: PAGE_SEO.cervicalSpineLanding.description,
+            url: toCanonicalUrl('/cervical-spine/'),
           }),
         ]}
       />

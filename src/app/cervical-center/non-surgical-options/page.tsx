@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import { buildMetadata } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { surgicalOptionsFaqs } from '@/content/clinical-faqs'
 import { ConditionLayout } from '@/components/ConditionLayout'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Cervical Non Surgical Options | Conservative Neck Care',
-  description:
-    'Non surgical cervical spine care including physical therapy, medication, epidural injections, and acupuncture. Most neck symptoms improve without surgery.',
+  title: PAGE_SEO.cervicalNonSurgical.title,
+  description: PAGE_SEO.cervicalNonSurgical.description,
   path: '/cervical-center/non-surgical-options/',
 })
 
@@ -16,6 +17,8 @@ export default function CervicalNonSurgicalOptionsPage() {
       title="Non Surgical Options"
       intro="The Cervical Center works with the team at Spine Options to provide non operative care for patients. Most patients who present with some form of neck pain, upper extremity weakness or numbness, or lower extremity weakness or numbness within the diagnosis of cervical spine disorders will not need surgery. Most symptoms improve over time with conservative treatment."
       canonicalPath="/cervical-center/non-surgical-options/"
+      schemaKind="service"
+      faqs={surgicalOptionsFaqs('cervical')}
       breadcrumbs={[
         { name: 'Home', url: '/' },
         { name: 'Cervical Center', url: '/cervical-center/' },

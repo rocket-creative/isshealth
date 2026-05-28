@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import { buildMetadata } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { surgicalOptionsFaqs } from '@/content/clinical-faqs'
 import { ConditionLayout } from '@/components/ConditionLayout'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Lumbar Non Surgical Options | Conservative Back Care',
-  description:
-    'Comprehensive non surgical treatment for lumbar conditions including physical therapy, epidural injections, and radiofrequency ablation.',
+  title: PAGE_SEO.lumbarNonSurgical.title,
+  description: PAGE_SEO.lumbarNonSurgical.description,
   path: '/the-lumbar-center/non-surgical-options/',
 })
 
@@ -16,6 +17,8 @@ export default function LumbarNonSurgicalOptionsPage() {
       title="Non Surgical Options"
       intro="We offer comprehensive non surgical treatment plans tailored to each patient's condition, focused on pain relief, mobility improvement, and overall spinal health. While we do not perform these treatments in house, we collaborate with trusted local specialists to ensure you receive the highest level of care."
       canonicalPath="/the-lumbar-center/non-surgical-options/"
+      schemaKind="service"
+      faqs={surgicalOptionsFaqs('lumbar')}
       breadcrumbs={[
         { name: 'Home', url: '/' },
         { name: 'The Lumbar Center', url: '/the-lumbar-center/' },

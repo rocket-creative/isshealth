@@ -2,14 +2,15 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema, physicianSchema } from '@/lib/schema'
+import { PAGE_SEO } from '@/content/page-seo'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
+import { JsonLd, physicianSchema } from '@/lib/schema'
 import { BottomCta } from '@/components/ConditionLayout'
 import { AnimateOnScroll } from '@/components/AnimateOnScroll'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Meet Dr. John M. Abrahams, MD | Providers',
-  description:
-    'Dr. John M. Abrahams is a board certified neurosurgeon in West Harrison, NY. Past President of Brain and Spine Surgeons of New York. Over 150 procedures annually.',
+  title: PAGE_SEO.providers.title,
+  description: PAGE_SEO.providers.description,
   path: '/providers/',
   image: `${SITE_URL}/images/dr-john-abrahams.jpg`,
 })
@@ -18,13 +19,7 @@ export default function ProvidersPage() {
   return (
     <>
       <JsonLd
-        data={[
-          breadcrumbSchema([
-            { name: 'Home', url: SITE_URL },
-            { name: 'Providers', url: `${SITE_URL}/providers/` },
-          ]),
-          physicianSchema(),
-        ]}
+        data={[generateBreadcrumbSchema('/providers/'), physicianSchema()]}
       />
 
       <header className="bg-iss-alt px-6 lg:px-12 pt-10 pb-10 md:pt-14 md:pb-14">

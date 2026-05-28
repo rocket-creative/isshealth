@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema } from '@/lib/schema'
+import { buildMetadata } from '@/lib/metadata'
+import { JsonLd, localBusinessSchema, webPageSchema } from '@/lib/schema'
+import { PAGE_SEO } from '@/content/page-seo'
+import { toCanonicalUrl } from '@/lib/metadata'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
 import { LocationsSection } from '@/components/LocationsSection'
 import { BottomCta } from '@/components/ConditionLayout'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Our Location | West Harrison, NY | Institute For Spine Surgery',
-  description:
-    'Visit the Institute For Spine Surgery main office in West Harrison, NY. New York Brain and Spine Surgery, P.C. Call (914) 948 3008.',
+  title: PAGE_SEO.locations.title,
+  description: PAGE_SEO.locations.description,
   path: '/locations/',
 })
 
@@ -16,10 +18,15 @@ export default function LocationsPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: 'Home', url: SITE_URL },
-          { name: 'Locations', url: `${SITE_URL}/locations/` },
-        ])}
+        data={[
+          generateBreadcrumbSchema('/locations/'),
+          localBusinessSchema(),
+          webPageSchema({
+            name: PAGE_SEO.locations.title,
+            description: PAGE_SEO.locations.description,
+            url: toCanonicalUrl('/locations/'),
+          }),
+        ]}
       />
 
       <header className="bg-iss-alt px-6 lg:px-12 pt-10 pb-10 md:pt-14 md:pb-14">

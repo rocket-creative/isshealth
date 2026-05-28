@@ -4,7 +4,9 @@ import './globals.css'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import { BackToTop } from '@/components/BackToTop'
+import { MobileCallBar } from '@/components/MobileCallBar'
 import { JsonLd, organizationSchema, websiteSchema } from '@/lib/schema'
+import { PAGE_SEO } from '@/content/page-seo'
 
 // ISS.health font pairing:
 // - H1 (hero): Montserrat Bold — Gotham substitute (free via Google Fonts)
@@ -48,16 +50,12 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Institute For Spine Surgery | Cervical & Lumbar Spine Specialists',
-    template: '%s | Institute For Spine Surgery',
-  },
-  description:
-    'Leaders in the treatment of disorders of the spine. Over 4,000 successful surgeries performed. Board certified neurosurgery in West Harrison, NY.',
   metadataBase: new URL('https://iss.health'),
   icons: {
     icon: '/favicon.ico',
   },
+  title: PAGE_SEO.home.title,
+  description: PAGE_SEO.home.description,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -79,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </div>
         <BackToTop />
+        <MobileCallBar />
       </body>
     </html>
   )

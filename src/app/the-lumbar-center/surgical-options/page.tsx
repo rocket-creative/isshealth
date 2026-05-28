@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { buildMetadata } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { surgicalOptionsFaqs } from '@/content/clinical-faqs'
 import { ConditionLayout } from '@/components/ConditionLayout'
 import { PostSurgerySection } from '@/components/PostSurgerySection'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Lumbar Surgical Options | Microdiscectomy, Laminectomy, Fusion',
-  description:
-    'Lumbar surgical options including microdiscectomy, laminectomy, foraminotomy, TLIF, XLIF, and tumor resection. Recovery and decision guidance.',
+  title: PAGE_SEO.lumbarSurgical.title,
+  description: PAGE_SEO.lumbarSurgical.description,
   path: '/the-lumbar-center/surgical-options/',
 })
 
@@ -17,6 +18,8 @@ export default function LumbarSurgicalOptionsPage() {
       title="Surgical Options"
       intro="Patients are initially evaluated by a physiatrist to ensure all non surgical options, including physical therapy and non narcotic pain management, are exhausted before considering a surgical solution."
       canonicalPath="/the-lumbar-center/surgical-options/"
+      schemaKind="service"
+      faqs={surgicalOptionsFaqs('lumbar')}
       breadcrumbs={[
         { name: 'Home', url: '/' },
         { name: 'The Lumbar Center', url: '/the-lumbar-center/' },

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { DraftCallout } from '@/components/DraftCallout'
 
 type Stat = {
   value: number
@@ -9,11 +10,20 @@ type Stat = {
   label: string
 }
 
-const stats: Stat[] = [
-  { value: 85, suffix: '%', label: 'Of patients return to normal activity within three months' },
+const confirmedStats: Stat[] = [
   { value: 4000, prefix: 'Over ', label: 'Successful surgeries performed' },
-  { value: 90, suffix: '%', label: 'Reduction in postoperative complications' },
-  { value: 98, suffix: '%', label: 'Of patients recommend our services' },
+  { value: 98, suffix: '%', label: 'Of patients recommend our care' },
+]
+
+const pendingStats = [
+  {
+    draftText: '85% of patients return to normal activity within three months',
+    label: 'Of patients return to normal activity within three months',
+  },
+  {
+    draftText: '90% reduction in postoperative complications',
+    label: 'Reduction in postoperative complications',
+  },
 ]
 
 function Counter({ value, suffix = '', prefix = '' }: { value: number; suffix?: string; prefix?: string }) {
@@ -67,19 +77,28 @@ export function StatsBar() {
     <section className="bg-iss-alt py-14 md:py-20 px-6 lg:px-12">
       <div className="max-w-3xl">
         <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">Our Proven Success</p>
-        <h2 className="mt-3 font-heading text-h2 max-w-[22ch]">
-          A 95% patient satisfaction rate, some of the most effective treatments in the region.
+        <h2 className="mt-3 font-heading text-h2 max-w-[28ch]">
+          Some of the most effective spine treatments in the region.
         </h2>
+        <DraftCallout type="approve" source="StatsBar heading">
+          A 95% patient satisfaction rate
+        </DraftCallout>
       </div>
       <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-        {stats.map((stat, i) => (
-          <div key={i} className="border-t-2 border-iss-teal pt-5">
+        {confirmedStats.map((stat) => (
+          <div key={stat.label} className="border-t-2 border-iss-teal pt-5">
             <p className="font-heading font-bold text-iss-teal text-stat leading-none whitespace-nowrap">
               <Counter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
             </p>
-            <p className="mt-4 text-iss-body text-sm font-light leading-relaxed max-w-[26ch]">
-              {stat.label}
-            </p>
+            <p className="mt-4 text-iss-body text-sm font-light leading-relaxed max-w-[26ch]">{stat.label}</p>
+          </div>
+        ))}
+        {pendingStats.map((stat) => (
+          <div key={stat.label} className="border-t-2 border-amber-500 pt-5">
+            <DraftCallout type="approve" source="StatsBar" className="my-0">
+              <p className="font-heading font-bold text-amber-900 text-lg leading-snug">{stat.draftText}</p>
+            </DraftCallout>
+            <p className="mt-4 text-iss-body text-sm font-light leading-relaxed max-w-[26ch]">{stat.label}</p>
           </div>
         ))}
       </div>

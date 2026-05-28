@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
-import { buildMetadata, SITE_URL } from '@/lib/metadata'
+import { buildMetadata } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { surgicalOptionsFaqs } from '@/content/clinical-faqs'
 import { ConditionLayout } from '@/components/ConditionLayout'
 import { PostSurgerySection } from '@/components/PostSurgerySection'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Cervical Surgical Options | ACDF and Disc Replacement',
-  description:
-    'Cervical surgical options including anterior cervical discectomy and fusion and anterior cervical disc replacement. Recovery and decision guidance.',
+  title: PAGE_SEO.cervicalSurgical.title,
+  description: PAGE_SEO.cervicalSurgical.description,
   path: '/cervical-center/surgical-options/',
 })
 
@@ -17,6 +18,8 @@ export default function CervicalSurgicalOptionsPage() {
       title="Surgical Options"
       intro="Patients are initially evaluated by a physiatrist to ensure all non surgical options, including physical therapy and non narcotic pain management, are exhausted before considering a surgical solution. Below we review which patients should undergo surgery."
       canonicalPath="/cervical-center/surgical-options/"
+      schemaKind="service"
+      faqs={surgicalOptionsFaqs('cervical')}
       breadcrumbs={[
         { name: 'Home', url: '/' },
         { name: 'Cervical Center', url: '/cervical-center/' },

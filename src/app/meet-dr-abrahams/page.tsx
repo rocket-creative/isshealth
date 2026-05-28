@@ -2,14 +2,15 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema, physicianSchema } from '@/lib/schema'
+import { PAGE_SEO } from '@/content/page-seo'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
+import { JsonLd, physicianSchema } from '@/lib/schema'
 import { AppointmentForm } from '@/components/AppointmentForm'
 import { BottomCta } from '@/components/ConditionLayout'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Meet Dr. John M. Abrahams, MD | Board Certified Neurosurgeon',
-  description:
-    'Dr. John M. Abrahams is a board certified neurosurgeon in West Harrison, NY. Past President of BSSNY. Over 4,000 successful surgeries performed.',
+  title: PAGE_SEO.meetDrAbrahams.title,
+  description: PAGE_SEO.meetDrAbrahams.description,
   path: '/meet-dr-abrahams/',
   image: `${SITE_URL}/images/dr-john-abrahams.jpg`,
 })
@@ -29,14 +30,21 @@ export default function MeetDrAbrahamsPage() {
   return (
     <>
       <JsonLd
-        data={[
-          breadcrumbSchema([
-            { name: 'Home', url: SITE_URL },
-            { name: 'Meet Dr. Abrahams', url: `${SITE_URL}/meet-dr-abrahams/` },
-          ]),
-          physicianSchema(),
-        ]}
+        data={[generateBreadcrumbSchema('/meet-dr-abrahams/'), physicianSchema()]}
       />
+
+      <nav
+        aria-label="Breadcrumb"
+        className="px-6 lg:px-12 pt-8 text-xs uppercase tracking-[0.18em] text-iss-body bg-white border-b border-stone-200"
+      >
+        <Link href="/" className="hover:text-iss-teal">
+          Home
+        </Link>
+        <span className="mx-2" aria-hidden="true">
+          /
+        </span>
+        <span className="text-iss-ink font-bold">Meet Dr. Abrahams</span>
+      </nav>
 
       <section className="relative bg-iss-ink text-white overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12">

@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema, serviceSchema } from '@/lib/schema'
+import { buildMetadata, toCanonicalUrl } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
+import { JsonLd, medicalServiceSchema } from '@/lib/schema'
 import { LandingHero } from '@/components/LandingHero'
 import { AppointmentForm } from '@/components/AppointmentForm'
 import { AnimateOnScroll } from '@/components/AnimateOnScroll'
 import { BottomCta } from '@/components/ConditionLayout'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Lumbar Spine and Lower Back Surgery | West Harrison, NY',
-  description:
-    'Expert lumbar spine surgery in West Harrison, NY. Microdiscectomy, laminectomy, TLIF, XLIF. Board certified neurosurgery. Over 4,000 surgeries performed.',
+  title: PAGE_SEO.lumbarSpineLanding.title,
+  description: PAGE_SEO.lumbarSpineLanding.description,
   path: '/lumbar-spine/',
 })
 
@@ -28,15 +29,11 @@ export default function LumbarSpineLandingPage() {
     <>
       <JsonLd
         data={[
-          breadcrumbSchema([
-            { name: 'Home', url: SITE_URL },
-            { name: 'Lumbar Spine', url: `${SITE_URL}/lumbar-spine/` },
-          ]),
-          serviceSchema({
+          generateBreadcrumbSchema('/lumbar-spine/'),
+          medicalServiceSchema({
             name: 'Lumbar Spine Surgery',
-            description:
-              'Lumbar spine and lower back surgery including microdiscectomy, laminectomy, foraminotomy, TLIF, and XLIF.',
-            url: `${SITE_URL}/lumbar-spine/`,
+            description: PAGE_SEO.lumbarSpineLanding.description,
+            url: toCanonicalUrl('/lumbar-spine/'),
           }),
         ]}
       />

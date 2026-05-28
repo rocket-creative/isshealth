@@ -2,7 +2,18 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { Resend } from 'resend'
 
+const referralSources = [
+  'Google Search',
+  'Doctor Referral',
+  'Friend or Family',
+  'Insurance Directory',
+  'Other',
+  '',
+] as const
+
 const schema = z.object({
+  firstName: z.string().min(1).max(100),
+  lastName: z.string().min(1).max(100),
   email: z.string().email().max(200),
   phone: z
     .string()
@@ -11,11 +22,28 @@ const schema = z.object({
     .regex(/^[\d\s()+\-.]+$/, 'Invalid phone'),
   diagnosis: z.string().max(200).optional().default(''),
   message: z.string().max(2000).optional().default(''),
-  captcha: z.number().int(),
-  captchaExpected: z.number().int(),
+  referralSource: z.enum(referralSources).optional().default(''),
+  company: z.string().max(200).optional().default(''),
+  recaptchaToken: z.string().max(2000).optional().default(''),
 })
 
 export const runtime = 'nodejs'
+
+async function verifyRecaptcha(token: string): Promise<boolean> {
+  const secret = process.env.RECAPTCHA_SECRET_KEY
+  if (!secret) return true
+  if (!token) return false
+
+  const res = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ secret, response: token }),
+  })
+  if (!res.ok) return false
+
+  const data = (await res.json()) as { success?: boolean; score?: number; action?: string }
+  return Boolean(data.success && (data.score ?? 0) >= 0.5 && data.action === 'appointment')
+}
 
 export async function POST(req: NextRequest) {
   const ts = new Date().toISOString()
@@ -33,10 +61,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Please check the form and try again.' }, { status: 400 })
   }
 
-  const { captcha, captchaExpected, email, phone, diagnosis, message } = parsed.data
-  if (captcha !== captchaExpected) {
-    console.log(JSON.stringify({ ts, endpoint: '/api/contact', ok: false, reason: 'captcha' }))
-    return NextResponse.json({ error: 'Incorrect answer to the verification question.' }, { status: 400 })
+  const { company, email, phone, diagnosis, message, firstName, lastName, referralSource, recaptchaToken } = parsed.data
+  if (company.trim().length > 0) {
+    console.log(JSON.stringify({ ts, endpoint: '/api/contact', ok: false, reason: 'honeypot' }))
+    return NextResponse.json({ success: true })
+  }
+
+  if (process.env.RECAPTCHA_SECRET_KEY) {
+    const valid = await verifyRecaptcha(recaptchaToken)
+    if (!valid) {
+      console.log(JSON.stringify({ ts, endpoint: '/api/contact', ok: false, reason: 'recaptcha' }))
+      return NextResponse.json({ error: 'Security verification failed. Please try again.' }, { status: 400 })
+    }
   }
 
   const resendKey = process.env.RESEND_API_KEY
@@ -53,9 +89,11 @@ export async function POST(req: NextRequest) {
     const subject = 'New appointment request from iss.health'
     const html = `
       <h2 style="font-family:sans-serif">New appointment request</h2>
+      <p><strong>Name:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p>
       <p><strong>Email:</strong> ${escapeHtml(email)}</p>
       <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
       <p><strong>Diagnosis:</strong> ${escapeHtml(diagnosis || '—')}</p>
+      <p><strong>How they heard about us:</strong> ${escapeHtml(referralSource || '—')}</p>
       <p><strong>Message:</strong><br/>${escapeHtml(message || '—').replace(/\n/g, '<br/>')}</p>
       <hr/>
       <p style="color:#666;font-size:12px">Submitted via iss.health at ${ts}</p>

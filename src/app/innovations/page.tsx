@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema } from '@/lib/schema'
+import { buildMetadata, toCanonicalUrl } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
+import { JsonLd, webPageSchema } from '@/lib/schema'
 import { CompanyCard } from '@/components/CompanyCard'
 import { BottomCta } from '@/components/ConditionLayout'
 import { AnimateOnScroll } from '@/components/AnimateOnScroll'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Innovations | Medical Devices by Dr. John M. Abrahams',
-  description:
-    'Dr. John Abrahams has developed innovative medical devices for brain and spine surgery including EndoMedix, Capseus, OnCallX, and a neurosurgical robot.',
+  title: PAGE_SEO.innovations.title,
+  description: PAGE_SEO.innovations.description,
   path: '/innovations/',
 })
 
@@ -74,10 +75,14 @@ export default function InnovationsPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: 'Home', url: SITE_URL },
-          { name: 'Innovations', url: `${SITE_URL}/innovations/` },
-        ])}
+        data={[
+          generateBreadcrumbSchema('/innovations/'),
+          webPageSchema({
+            name: PAGE_SEO.innovations.title,
+            description: PAGE_SEO.innovations.description,
+            url: toCanonicalUrl('/innovations/'),
+          }),
+        ]}
       />
 
       <header className="relative bg-iss-ink text-white overflow-hidden">

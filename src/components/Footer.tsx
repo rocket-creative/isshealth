@@ -82,6 +82,11 @@ export function Footer() {
                 Appointments
               </Link>
             </li>
+            <li>
+              <Link href="/insurance/" className="link-underline hover:text-white transition-colors">
+                Insurance and Billing
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

@@ -1,16 +1,18 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema } from '@/lib/schema'
+import { buildMetadata, toCanonicalUrl } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { JsonLd, localBusinessSchema, webPageSchema } from '@/lib/schema'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
+import { TrustSignals } from '@/components/TrustSignals'
 import { AppointmentForm } from '@/components/AppointmentForm'
 import { LocationsSection } from '@/components/LocationsSection'
 import { Phone } from 'lucide-react'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Request an Appointment | Institute For Spine Surgery',
-  description:
-    'Request a consultation with the Institute For Spine Surgery in West Harrison, NY. Fill the secure form or call (914) 948 3008.',
+  title: PAGE_SEO.appointments.title,
+  description: PAGE_SEO.appointments.description,
   path: '/appointments/',
 })
 
@@ -18,10 +20,15 @@ export default function AppointmentsPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: 'Home', url: SITE_URL },
-          { name: 'Appointments', url: `${SITE_URL}/appointments/` },
-        ])}
+        data={[
+          generateBreadcrumbSchema('/appointments/'),
+          localBusinessSchema(),
+          webPageSchema({
+            name: PAGE_SEO.appointments.title,
+            description: PAGE_SEO.appointments.description,
+            url: toCanonicalUrl('/appointments/'),
+          }),
+        ]}
       />
 
       <header className="relative bg-iss-ink text-white overflow-hidden">
@@ -38,8 +45,12 @@ export default function AppointmentsPage() {
         </div>
         <div className="relative px-6 lg:px-12 pt-10 pb-10 md:pt-14 md:pb-14">
           <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-[0.18em] text-white/70 mb-6">
-            <Link href="/" className="hover:text-iss-coral">Home</Link>
-            <span className="mx-2" aria-hidden="true">/</span>
+            <Link href="/" className="hover:text-iss-coral">
+              Home
+            </Link>
+            <span className="mx-2" aria-hidden="true">
+              /
+            </span>
             <span className="text-white font-bold">Appointments</span>
           </nav>
           <p className="font-body text-xs uppercase tracking-[0.22em] text-iss-coral font-bold">Appointments</p>
@@ -61,8 +72,22 @@ export default function AppointmentsPage() {
           <p className="mt-4 text-iss-body font-light leading-relaxed max-w-prose">
             We reply within one business day. Your information is transmitted securely and is never shared.
           </p>
+          <TrustSignals className="mt-6" />
+
+          <div className="mt-8 bg-iss-teal text-white p-6 md:p-8">
+            <p className="font-body text-xs uppercase tracking-[0.18em] font-bold">Prefer to call?</p>
+            <a
+              href="tel:+19149483008"
+              className="mt-2 flex items-center gap-3 font-heading text-2xl md:text-3xl font-bold hover:text-iss-coral transition-colors"
+            >
+              <Phone size={24} aria-hidden="true" />
+              (914) 948 3008
+            </a>
+            <p className="mt-2 text-white/90 text-sm font-light">Monday through Friday, 8am to 5pm ET.</p>
+          </div>
+
           <div className="mt-10">
-            <AppointmentForm />
+            <AppointmentForm showTestimonial />
           </div>
         </div>
 
@@ -88,6 +113,19 @@ export default function AppointmentsPage() {
               <br />
               Fax: (914) 992 7401
             </address>
+          </div>
+          <div className="border border-stone-200 p-8">
+            <p className="font-body text-xs uppercase tracking-[0.18em] text-iss-teal font-bold">Insurance and billing</p>
+            <p className="mt-3 text-iss-body font-light text-sm leading-relaxed">
+              Questions about coverage or billing? View accepted plans and contact details.
+            </p>
+            <Link
+              href="/insurance/"
+              className="btn-arrow mt-4 inline-flex items-center gap-2 text-iss-teal hover:text-iss-teal-dark text-xs font-bold uppercase tracking-[0.18em] transition-colors"
+            >
+              <span>Insurance and Billing</span>
+              <span className="arrow">→</span>
+            </Link>
           </div>
         </aside>
       </section>

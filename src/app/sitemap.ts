@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/providers/',
     '/locations/',
     '/appointments/',
+    '/insurance/',
     '/innovations/',
     '/in-the-news/',
     '/cervical-center/',

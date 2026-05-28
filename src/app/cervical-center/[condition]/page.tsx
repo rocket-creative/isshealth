@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { buildMetadata } from '@/lib/metadata'
+import { CONDITION_SEO } from '@/content/page-seo'
+import { getConditionFaqs } from '@/content/clinical-faqs'
+import { getConditionSchemaDetails } from '@/content/condition-schema'
 import { ConditionLayout } from '@/components/ConditionLayout'
-import { PostSurgerySection } from '@/components/PostSurgerySection'
 import { cervicalConditions, allCervicalSlugs } from '@/content/conditions'
 import { cervicalConditionContent } from '@/content/cervical-condition-content'
 
@@ -16,9 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { condition } = await params
   const c = cervicalConditions[condition]
   if (!c) return {}
+  const seo = CONDITION_SEO[condition]
   return buildMetadata({
-    title: c.metaTitle,
-    description: c.metaDescription,
+    title: seo?.title ?? c.metaTitle,
+    description: seo?.description ?? c.metaDescription,
     path: `/cervical-center/${condition}/`,
   })
 }
@@ -31,9 +34,9 @@ export default async function CervicalConditionPage({ params }: { params: Promis
 
   const related = Object.values(cervicalConditions)
     .filter((x) => x.slug !== c.slug)
-    .slice(0, 4)
     .map((x) => ({ label: x.title, href: `/cervical-center/${x.slug}/` }))
 
+  related.push({ label: 'Non Surgical Options', href: '/cervical-center/non-surgical-options/' })
   related.push({ label: 'Surgical Options', href: '/cervical-center/surgical-options/' })
 
   return (
@@ -48,9 +51,11 @@ export default async function CervicalConditionPage({ params }: { params: Promis
         { name: c.title, url: `/cervical-center/${c.slug}/` },
       ]}
       related={related}
+      faqs={getConditionFaqs(c.title)}
+      faqHeading="Frequently asked questions"
+      schemaDetails={getConditionSchemaDetails(c.slug)}
     >
       {content}
-      <PostSurgerySection kind="cervical" />
     </ConditionLayout>
   )
 }

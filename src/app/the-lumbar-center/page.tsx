@@ -1,14 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema } from '@/lib/schema'
+import { buildMetadata, SITE_URL, toCanonicalUrl } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { lumbarCenterFaqs } from '@/content/clinical-faqs'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
+import { JsonLd, faqSchema, medicalServiceSchema } from '@/lib/schema'
+import { FaqSection } from '@/components/FaqSection'
 import { BottomCta } from '@/components/ConditionLayout'
 import { lumbarConditions } from '@/content/conditions'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'The Lumbar Center | Lower Back Spine Specialists',
-  description:
-    'Comprehensive care for lumbar spine disorders including disc herniation, stenosis, radiculopathy, spondylolisthesis, and foot drop.',
+  title: PAGE_SEO.lumbarCenter.title,
+  description: PAGE_SEO.lumbarCenter.description,
   path: '/the-lumbar-center/',
 })
 
@@ -16,10 +19,15 @@ export default function LumbarCenterPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: 'Home', url: SITE_URL },
-          { name: 'Lumbar Center', url: `${SITE_URL}/the-lumbar-center/` },
-        ])}
+        data={[
+          generateBreadcrumbSchema('/the-lumbar-center/'),
+          medicalServiceSchema({
+            name: 'Lumbar Spine Center',
+            description: PAGE_SEO.lumbarCenter.description,
+            url: toCanonicalUrl('/the-lumbar-center/'),
+          }),
+          faqSchema(lumbarCenterFaqs),
+        ]}
       />
 
       <header className="bg-iss-alt px-6 lg:px-12 pt-10 pb-10 md:pt-14 md:pb-14">
@@ -80,6 +88,14 @@ export default function LumbarCenterPage() {
           ))}
         </div>
       </section>
+
+      <FaqSection
+        id="lumbar-center-faq"
+        headingId="lumbar-center-faq-heading"
+        title="What should I know about lumbar spine care?"
+        items={lumbarCenterFaqs}
+        className="bg-iss-alt px-6 lg:px-12 py-12 md:py-16"
+      />
 
       <BottomCta />
     </>

@@ -1,82 +1,25 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildMetadata, SITE_URL } from '@/lib/metadata'
-import { JsonLd, breadcrumbSchema, faqSchema } from '@/lib/schema'
+import { buildMetadata } from '@/lib/metadata'
+import { PAGE_SEO } from '@/content/page-seo'
+import { cervicalCenterFaqs } from '@/content/clinical-faqs'
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
+import { JsonLd, faqSchema } from '@/lib/schema'
 import { Accordion } from '@/components/Accordion'
 import { BottomCta } from '@/components/ConditionLayout'
 import { cervicalConditions } from '@/content/conditions'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Cervical Center | Neck and Cervical Spine Specialists',
-  description:
-    'The Cervical Center treats neck pain, cervical stenosis, myelopathy, radiculopathy, and disc herniation with a multidisciplinary neurosurgical team.',
+  title: PAGE_SEO.cervicalCenter.title,
+  description: PAGE_SEO.cervicalCenter.description,
   path: '/cervical-center/',
 })
-
-const faqItems = [
-  {
-    question: 'I have neck pain. Do I need an MRI?',
-    answer:
-      'Most neck pain improves with non steroidal anti inflammatory agents such as Motrin, Aleve, Advil, and Tylenol. If your pain is persistent for more than a few weeks, you should consult your primary care physician about whether you should see a specialist and obtain imaging studies. Any patient with numbness or weakness is a more urgent matter and should undergo an MRI of the cervical spine regardless of pain level.',
-  },
-  {
-    question: 'Should I try physical therapy?',
-    answer:
-      'Any patient with persistent and worsening symptoms greater than four to six weeks is a candidate for a cervical spine evaluation. Most patients undergo an MRI to develop a diagnosis with their clinical presentation. If the patient is diagnosed with arthritis or cervical degeneration without any nerve root or spinal cord compression, they are a good candidate for an initial course of physical therapy. Most providers send patients to therapy for six to eight weeks and only continue if they improve after the initial course.',
-  },
-  {
-    question: 'Should I try an epidural injection?',
-    answer:
-      'An epidural injection will work for a pinched nerve or cervical radiculopathy. Most pain management providers try a selective epidural on the compressed nerve for some form of relief. They will attempt up to three injections. If there is no improvement in the presence of a compressed nerve, they may refer to a surgeon.',
-  },
-  {
-    question: 'Can acupuncture help me?',
-    answer:
-      'Acupuncture is extremely helpful for someone with persistent muscle spasms without nerve root compression and without myelopathy. Constant neck pain can cause the muscles of the neck and shoulders to remain in spasm. Acupuncture helps in this specific situation.',
-  },
-  {
-    question: 'Who needs surgery after non surgical care?',
-    answer:
-      'Patients who present with any sort of neurological deficit are candidates for surgery sooner than later. This includes severe weakness of the upper extremities from a pinched nerve or progressive cervical stenosis causing cord compression. Patients with mild to moderate symptoms are evaluated based on the extent of any deficits, length of symptoms, and overall function.',
-  },
-  {
-    question: 'Do I need to wear a collar after cervical spine surgery?',
-    answer:
-      'Most patients who undergo anterior cervical surgery through a one level, two level, or three level surgery will not be required to wear a collar. Fusion rates are higher now, patient education on postoperative care is better, and fusion technology has improved. A small number of patients involved in a traumatic accident with or without cervical spine surgery may be required to wear a collar for instability, but this is a minority, under five percent.',
-  },
-  {
-    question: 'Are you taking bone from my hip if I have a cervical fusion?',
-    answer:
-      'The vast majority of spine surgeons do not take bone from your hip. As technology improved and allograft products became more available, the need for hip bone became less important. In this practice, we only use bone harvested from the patient through the same incision.',
-  },
-  {
-    question: 'Do I need to stay in bed after cervical surgery?',
-    answer:
-      'Mobility is key. Over the past twenty years, surgical recovery has moved from immobility as the standard to mobility as the standard. We tell our patients to follow the 20 Minute Rule of changing position every twenty minutes, as mobility loosens muscles and improves pain.',
-  },
-  {
-    question: 'Will I keep having more surgery after my first one?',
-    answer:
-      'The risk of needing additional surgery after a first cervical spine surgery is approximately four percent over a lifetime. This means about four patients out of one hundred surgical patients will need additional surgery, most likely on the level above or below the initial surgical level.',
-  },
-  {
-    question: 'Is cervical disc replacement better than cervical fusion?',
-    answer:
-      'A research study evaluating the ten year outcome of single level cervical disc replacement versus anterior cervical discectomy and fusion in New York was published in the Journal of Neurosurgery — Spine in April 2023. The study included 7,450 patients. The analysis showed no significant differences in revision risk between the two groups. The CDR cohort had a higher incidence of postoperative swallowing difficulty while ACDF patients had a longer average hospital stay. Overall, this supports both procedures in terms of success and outcomes.',
-  },
-]
 
 export default function CervicalCenterPage() {
   return (
     <>
       <JsonLd
-        data={[
-          breadcrumbSchema([
-            { name: 'Home', url: SITE_URL },
-            { name: 'Cervical Center', url: `${SITE_URL}/cervical-center/` },
-          ]),
-          faqSchema(faqItems.map((f) => ({ question: f.question, answer: f.answer }))),
-        ]}
+        data={[generateBreadcrumbSchema('/cervical-center/'), faqSchema(cervicalCenterFaqs)]}
       />
 
       <header className="bg-iss-alt px-6 lg:px-12 pt-10 pb-10 md:pt-14 md:pb-14">
@@ -148,7 +91,7 @@ export default function CervicalCenterPage() {
             <h2 className="mt-4 font-heading text-h2">Common questions about the cervical spine.</h2>
           </div>
           <div className="lg:col-span-8">
-            <Accordion items={faqItems} />
+            <Accordion items={cervicalCenterFaqs} />
           </div>
         </div>
       </section>

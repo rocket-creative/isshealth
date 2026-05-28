@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { buildMetadata } from '@/lib/metadata'
+import { CONDITION_SEO } from '@/content/page-seo'
+import { getConditionFaqs } from '@/content/clinical-faqs'
+import { getConditionSchemaDetails } from '@/content/condition-schema'
 import { ConditionLayout } from '@/components/ConditionLayout'
 import { lumbarConditions, allLumbarSlugs } from '@/content/conditions'
 import { lumbarConditionContent } from '@/content/lumbar-condition-content'
@@ -15,9 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { condition } = await params
   const c = lumbarConditions[condition]
   if (!c) return {}
+  const seo = CONDITION_SEO[condition]
   return buildMetadata({
-    title: c.metaTitle,
-    description: c.metaDescription,
+    title: seo?.title ?? c.metaTitle,
+    description: seo?.description ?? c.metaDescription,
     path: `/common-diagnosis/${condition}/`,
   })
 }
@@ -30,9 +34,9 @@ export default async function LumbarConditionPage({ params }: { params: Promise<
 
   const related = Object.values(lumbarConditions)
     .filter((x) => x.slug !== c.slug)
-    .slice(0, 4)
     .map((x) => ({ label: x.title, href: `/common-diagnosis/${x.slug}/` }))
 
+  related.push({ label: 'Non Surgical Options', href: '/the-lumbar-center/non-surgical-options/' })
   related.push({ label: 'Surgical Options', href: '/the-lumbar-center/surgical-options/' })
 
   return (
@@ -47,6 +51,9 @@ export default async function LumbarConditionPage({ params }: { params: Promise<
         { name: c.title, url: `/common-diagnosis/${c.slug}/` },
       ]}
       related={related}
+      faqs={getConditionFaqs(c.title)}
+      faqHeading="Frequently asked questions"
+      schemaDetails={getConditionSchemaDetails(c.slug)}
     >
       {content}
     </ConditionLayout>
