@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Linkedin, Instagram } from 'lucide-react'
+import { Mail, Linkedin, Instagram, Facebook } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -23,11 +23,14 @@ export function Footer() {
             <a href="mailto:info@nybrainspine.com" aria-label="Email" className="hover:text-iss-coral transition-colors">
               <Mail size={18} aria-hidden="true" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-iss-coral transition-colors">
+            <a href="https://www.linkedin.com/company/institute-for-spine-surgery/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-iss-coral transition-colors">
               <Linkedin size={18} aria-hidden="true" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-iss-coral transition-colors">
+            <a href="https://www.instagram.com/instituteforspinesurgery" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-iss-coral transition-colors">
               <Instagram size={18} aria-hidden="true" />
+            </a>
+            <a href="https://www.facebook.com/BrainSpineSurgeonsOfNewYork" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-iss-coral transition-colors">
+              <Facebook size={18} aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -80,11 +83,6 @@ export function Footer() {
             <li>
               <Link href="/appointments/" className="link-underline hover:text-white transition-colors">
                 Appointments
-              </Link>
-            </li>
-            <li>
-              <Link href="/insurance/" className="link-underline hover:text-white transition-colors">
-                Insurance and Billing
               </Link>
             </li>
           </ul>

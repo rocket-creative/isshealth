@@ -45,7 +45,6 @@ export default function CervicalSpineLandingPage() {
           'Over 4,000 successful surgeries performed',
           'Same day outpatient procedures for one and two level surgery',
           '85% of patients return to normal activity within three months',
-          'Most major insurance accepted',
         ]}
         imageSrc="/images/header.jpg"
         imageAlt="Cervical spine three dimensional render"

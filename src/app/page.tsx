@@ -29,27 +29,22 @@ const faqItems = [
   {
     question: 'Do I need surgery for my spine condition?',
     answer:
-      'Most patients improve with non surgical care. We begin with conservative options like physical therapy, medication, acupuncture, and epidural injections. Surgery is recommended when a patient has a neurological deficit, progressive symptoms, or has not responded to non surgical treatment.',
+      'Most patients do not. The majority of spine conditions improve with conservative care such as physical therapy, medication, and time. Surgery is reserved for specific situations, such as a clear neurological deficit or symptoms that persist despite a fair course of non surgical treatment. We start conservative and escalate only when your situation calls for it.',
   },
   {
     question: 'What is minimally invasive spine surgery?',
     answer:
-      'Minimally invasive surgery uses small incisions, specialized instruments, and intraoperative imaging to treat spine conditions with less tissue disruption. Patients typically experience shorter hospital stays, less postoperative pain, and quicker return to normal activity.',
+      'It refers to techniques that use smaller incisions and spare more of the surrounding muscle and tissue. For suitable patients this often means less pain after surgery and a faster recovery than traditional open approaches. Many of our procedures are performed this way, and most patients go home the same day.',
   },
   {
     question: 'How long is recovery after spine surgery?',
     answer:
-      'Recovery varies by procedure. Many cervical patients return to normal activity within six weeks. Lumbar fusion patients usually resume normal activity within three months.',
-  },
-  {
-    question: 'What insurance do you accept?',
-    answer:
-      'Our practice accepts most major insurance plans. Call (914) 948 3008 to confirm coverage before your appointment.',
+      'It depends on the procedure and the person. Walking is encouraged right away and is the main activity for the first four weeks. Many patients return to light activity within a few weeks, while a fusion takes longer to heal fully, and physically demanding jobs may need six to twelve weeks. Your surgeon gives you a timeline built around your specific operation.',
   },
   {
     question: 'Will I need a second surgery?',
     answer:
-      'The risk of needing additional surgery after a first cervical spine surgery is approximately 4 percent over a lifetime, most commonly at the level above or below the initial surgical site. For lumbar procedures, revision risk depends on the diagnosis, procedure, and patient factors.',
+      'Most patients do not. The risk of needing additional surgery after a first cervical procedure is roughly four percent over a lifetime, usually at the level just above or below the original. A careful first plan, and good long term spine health, keep that risk low.',
   },
 ]
 

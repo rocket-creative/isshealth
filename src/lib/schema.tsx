@@ -38,7 +38,11 @@ export const organizationSchema = {
   ],
   medicalSpecialty: ['https://schema.org/Neurological', 'https://schema.org/Musculoskeletal'],
   hasMap: 'https://www.google.com/maps?q=244+Westchester+Avenue+Suite+209+West+Harrison+NY+10604',
-  sameAs: ['https://www.linkedin.com', 'https://www.instagram.com'],
+  sameAs: [
+    'https://www.linkedin.com/company/institute-for-spine-surgery/',
+    'https://www.instagram.com/instituteforspinesurgery',
+    'https://www.facebook.com/BrainSpineSurgeonsOfNewYork',
+  ],
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+1-914-948-3008',

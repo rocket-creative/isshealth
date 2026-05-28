@@ -114,19 +114,6 @@ export default function AppointmentsPage() {
               Fax: (914) 992 7401
             </address>
           </div>
-          <div className="border border-stone-200 p-8">
-            <p className="font-body text-xs uppercase tracking-[0.18em] text-iss-teal font-bold">Insurance and billing</p>
-            <p className="mt-3 text-iss-body font-light text-sm leading-relaxed">
-              Questions about coverage or billing? View accepted plans and contact details.
-            </p>
-            <Link
-              href="/insurance/"
-              className="btn-arrow mt-4 inline-flex items-center gap-2 text-iss-teal hover:text-iss-teal-dark text-xs font-bold uppercase tracking-[0.18em] transition-colors"
-            >
-              <span>Insurance and Billing</span>
-              <span className="arrow">→</span>
-            </Link>
-          </div>
         </aside>
       </section>
 

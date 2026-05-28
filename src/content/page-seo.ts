@@ -28,11 +28,6 @@ export const PAGE_SEO = {
     description:
       'Request a secure appointment with our neurosurgical team in West Harrison, NY. We respond within one business day. Prefer to call? Dial (914) 948 3008 Monday through Friday.',
   },
-  insurance: {
-    title: 'Insurance and Billing Spine Surgery Westchester | ISS',
-    description:
-      'Insurance and billing information for the Institute For Spine Surgery in West Harrison, NY. Accepted plans, Medicare details, and billing contact. Call (914) 948 3008 with questions.',
-  },
   innovations: {
     title: 'Spine Surgery Innovations and Medical Devices | ISS',
     description:

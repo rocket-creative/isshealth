@@ -11,19 +11,10 @@ type Stat = {
 }
 
 const confirmedStats: Stat[] = [
+  { value: 85, suffix: '%', label: 'Of patients return to normal activity within three months' },
   { value: 4000, prefix: 'Over ', label: 'Successful surgeries performed' },
-  { value: 98, suffix: '%', label: 'Of patients recommend our care' },
-]
-
-const pendingStats = [
-  {
-    draftText: '85% of patients return to normal activity within three months',
-    label: 'Of patients return to normal activity within three months',
-  },
-  {
-    draftText: '90% reduction in postoperative complications',
-    label: 'Reduction in postoperative complications',
-  },
+  { value: 90, suffix: '%', label: 'Reduction in postoperative complications' },
+  { value: 98, suffix: '%', label: 'Of patients recommend our services' },
 ]
 
 function Counter({ value, suffix = '', prefix = '' }: { value: number; suffix?: string; prefix?: string }) {
@@ -90,14 +81,6 @@ export function StatsBar() {
             <p className="font-heading font-bold text-iss-teal text-stat leading-none whitespace-nowrap">
               <Counter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
             </p>
-            <p className="mt-4 text-iss-body text-sm font-light leading-relaxed max-w-[26ch]">{stat.label}</p>
-          </div>
-        ))}
-        {pendingStats.map((stat) => (
-          <div key={stat.label} className="border-t-2 border-amber-500 pt-5">
-            <DraftCallout type="approve" source="StatsBar" className="my-0">
-              <p className="font-heading font-bold text-amber-900 text-lg leading-snug">{stat.draftText}</p>
-            </DraftCallout>
             <p className="mt-4 text-iss-body text-sm font-light leading-relaxed max-w-[26ch]">{stat.label}</p>
           </div>
         ))}

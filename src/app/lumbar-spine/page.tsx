@@ -46,7 +46,6 @@ export default function LumbarSpineLandingPage() {
           '85% of patients return to normal activity within three months',
           'Minimally invasive microdiscectomy, laminectomy, and fusion',
           '90% reduction in postoperative complications',
-          'Most major insurance accepted',
         ]}
         imageSrc="/images/care.jpg"
         imageAlt="Surgeon reviewing lumbar spine imaging"

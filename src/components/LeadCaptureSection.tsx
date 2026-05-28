@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { DraftCallout } from '@/components/DraftCallout'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -48,13 +47,11 @@ export function LeadCaptureSection() {
         <div className="lg:col-span-6">
           <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">Free patient guide</p>
           <h2 id="lead-capture-heading" className="mt-4 font-heading text-h2">
-            Download our spine care guide
+            Understanding Your Spine
           </h2>
-          <DraftCallout type="supply">
-            <p>[DR. ABRAHAMS TO SUPPLY — guide title pending]</p>
-          </DraftCallout>
           <p className="mt-6 text-iss-body font-light leading-relaxed max-w-prose">
-            Not ready to schedule yet? Enter your name and email to receive a downloadable guide when it is available.
+            A plain language guide to neck and back health, your treatment options, and knowing when to seek care. Medically
+            reviewed by Dr. John M. Abrahams. Enter your name and email and we will send it to you.
           </p>
         </div>
 
@@ -63,7 +60,7 @@ export function LeadCaptureSection() {
             <div role="status" aria-live="polite">
               <p className="font-heading text-2xl font-bold uppercase tracking-tight text-iss-ink">Thank you.</p>
               <p className="mt-4 text-iss-body font-light leading-relaxed">
-                We saved your request. You will receive the guide by email once Dr. Abrahams approves the content.
+                We saved your request and will email you the guide shortly.
               </p>
             </div>
           ) : (
@@ -101,7 +98,7 @@ export function LeadCaptureSection() {
                 />
               </div>
               <p className="text-iss-body text-xs font-light">
-                We do not share your information. Guide delivery email is pending client approval.
+                We do not share your information.
               </p>
               <button
                 type="submit"

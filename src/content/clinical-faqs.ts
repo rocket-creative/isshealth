@@ -1,8 +1,5 @@
 import type { FaqItem } from '@/components/FaqSection'
 
-const sharedInsuranceAnswer =
-  'Our practice accepts most major insurance plans. Call (914) 948 3008 to confirm coverage before your appointment. Bring your insurance card and any prior imaging on the day of your visit.'
-
 export const cervicalCenterFaqs: FaqItem[] = [
   {
     question: 'I have neck pain. Do I need an MRI?',
@@ -12,47 +9,47 @@ export const cervicalCenterFaqs: FaqItem[] = [
   {
     question: 'Should I try physical therapy?',
     answer:
-      'Any patient with persistent and worsening symptoms greater than four to six weeks is a candidate for a cervical spine evaluation. Most patients undergo an MRI to develop a diagnosis with their clinical presentation. If the patient is diagnosed with arthritis or cervical degeneration without any nerve root or spinal cord compression, they are a good candidate for an initial course of physical therapy. Most providers send patients to therapy for six to eight weeks and only continue if they improve after the initial course.',
+      'Any patient with persistent and worsening symptoms beyond four to six weeks is a candidate for a cervical spine evaluation. Most patients undergo an MRI to pair a diagnosis with their clinical presentation. If the diagnosis is arthritis or cervical degeneration without any nerve root or spinal cord compression, they are a good candidate for an initial course of physical therapy. Most providers send patients to therapy for six to eight weeks and continue only if they improve after the initial course. If symptoms worsen, the patient may be referred to pain management or a surgeon.',
   },
   {
     question: 'Should I try an epidural injection?',
     answer:
-      'An epidural injection will work for a pinched nerve or cervical radiculopathy. Most pain management providers try a selective epidural on the compressed nerve for some form of relief. They will attempt up to three injections. If there is no improvement in the presence of a compressed nerve, they may refer to a surgeon.',
+      'An epidural injection can help a pinched nerve, or cervical radiculopathy. Most pain management providers try a selective epidural on the compressed nerve for relief, and may attempt up to three injections to achieve improvement. If there is no improvement while a nerve remains compressed, they may refer you to a surgeon.',
   },
   {
     question: 'Can acupuncture help me?',
     answer:
-      'Acupuncture is extremely helpful for someone with persistent muscle spasms without nerve root compression and without myelopathy. Constant neck pain can cause the muscles of the neck and shoulders to remain in spasm. Acupuncture helps in this specific situation.',
+      'Acupuncture can be very helpful for someone with persistent muscle spasm, when there is no nerve root compression and no myelopathy. Constant neck pain can keep the muscles of the neck and shoulders in spasm, and acupuncture helps in that particular situation.',
   },
   {
     question: 'Who needs surgery after non surgical care?',
     answer:
-      'Patients who present with any sort of neurological deficit are candidates for surgery sooner than later. This includes severe weakness of the upper extremities from a pinched nerve or progressive cervical stenosis causing cord compression. Patients with mild to moderate symptoms are evaluated based on the extent of any deficits, length of symptoms, and overall function.',
+      'Patients with any neurological deficit are candidates for surgery sooner rather than later. That includes severe weakness in the arms from a pinched nerve, or progressive cervical stenosis causing cord compression. Patients with mild to moderate symptoms are evaluated based on the extent of any deficit, how long the symptoms have lasted, and overall function.',
   },
   {
     question: 'Do I need to wear a collar after cervical spine surgery?',
     answer:
-      'Most patients who undergo anterior cervical surgery through a one level, two level, or three level surgery will not be required to wear a collar. Fusion rates are higher now, patient education on postoperative care is better, and fusion technology has improved. A small number of patients involved in a traumatic accident with or without cervical spine surgery may be required to wear a collar for instability, but this is a minority, under five percent.',
+      'Most patients who undergo anterior cervical surgery at one, two, or three levels are not required to wear a collar. As recently as ten years ago surgeons routinely mandated one, but that is no longer the case, thanks to higher fusion rates, better postoperative education, and improved fusion technology. A small number of patients, mainly those involved in a traumatic accident, may need a collar for instability, but that is fewer than five percent.',
   },
   {
     question: 'Are you taking bone from my hip if I have a cervical fusion?',
     answer:
-      'The vast majority of spine surgeons do not take bone from your hip. As technology improved and allograft products became more available, the need for hip bone became less important. In this practice, we only use bone harvested from the patient through the same incision.',
+      'The vast majority of spine surgeons do not take bone from your hip. As the technology improved and allograft products became more available, the need for hip bone fell away. In fact, harvesting hip bone often hurt more than the cervical surgery itself. In our practice we only use bone harvested through the same incision.',
   },
   {
     question: 'Do I need to stay in bed after cervical surgery?',
     answer:
-      'Mobility is key. Over the past twenty years, surgical recovery has moved from immobility as the standard to mobility as the standard. We tell our patients to follow the 20 Minute Rule of changing position every twenty minutes, as mobility loosens muscles and improves pain.',
+      'No. Mobility is the key. Over the past twenty years the gold standard has shifted from immobility to movement. We often tell patients to follow the twenty minute rule, changing position every twenty minutes, since moving loosens the muscles and eases pain.',
   },
   {
     question: 'Will I keep having more surgery after my first one?',
     answer:
-      'The risk of needing additional surgery after a first cervical spine surgery is approximately four percent over a lifetime. This means about four patients out of one hundred surgical patients will need additional surgery, most likely on the level above or below the initial surgical level.',
+      'The risk of needing additional surgery after your first cervical spine procedure is roughly four percent over your lifetime. That means about four patients in one hundred return for more surgery, most often at the level just above or below the original one.',
   },
   {
     question: 'Is cervical disc replacement better than cervical fusion?',
     answer:
-      'A research study evaluating the ten year outcome of single level cervical disc replacement versus anterior cervical discectomy and fusion in New York was published in the Journal of Neurosurgery — Spine in April 2023. The study included 7,450 patients. The analysis showed no significant differences in revision risk between the two groups. The CDR cohort had a higher incidence of postoperative swallowing difficulty while ACDF patients had a longer average hospital stay. Overall, this supports both procedures in terms of success and outcomes.',
+      'Both procedures work well, and neither is simply better. ACDF, the fusion procedure, is still considered the gold standard for cervical disc disease that causes radiculopathy or myelopathy. Disc replacement can offer more range of motion and may reduce the risk of adjacent segment disease over the long term. A ten year New York State study of single level cases, published in the Journal of Neurosurgery Spine in April 2023, found no significant difference in revision risk between the two. The disc replacement group had more postoperative swallowing difficulty, while the fusion group had a slightly longer hospital stay. Our main caution is that some patients report increased neck pain after disc replacement, so the right choice depends on your anatomy and symptoms.',
   },
 ]
 
@@ -77,10 +74,6 @@ export const lumbarCenterFaqs: FaqItem[] = [
     answer:
       'We use physical therapy, anti inflammatory medication, epidural steroid injections, radiofrequency ablation, and coordinated pain management. Acupuncture may help selected muscle spasm patterns without nerve compression.',
   },
-  {
-    question: 'What insurance plans do you accept for lumbar care?',
-    answer: sharedInsuranceAnswer,
-  },
 ]
 
 export const surgicalOptionsFaqs = (region: 'cervical' | 'lumbar'): FaqItem[] => {
@@ -92,20 +85,20 @@ export const surgicalOptionsFaqs = (region: 'cervical' | 'lumbar'): FaqItem[] =>
     },
     {
       question: `What is the difference between fusion and motion preserving surgery?`,
-      answer: `Fusion stabilizes the segment after disc removal. Motion preserving options such as disc replacement may be appropriate for selected one or two level cervical cases. Your surgeon reviews alignment, bone quality, and symptom pattern before recommending a procedure.`,
+      answer: `A fusion joins two or more vertebrae so they heal into one solid unit, which stabilizes the segment but removes motion at that level. Motion preserving surgery, such as an artificial disc replacement, relieves the same nerve pressure while keeping natural movement. Fusion suits instability and certain causes of pain, while motion preservation suits selected patients with good alignment and mainly nerve related symptoms.`,
     },
     {
       question: `Is ${label} spine surgery performed as outpatient surgery?`,
-      answer: `Many one and two level anterior cervical procedures and selected lumbar decompressions go home the same day. Multilevel fusion or cases with medical comorbidities may require an overnight stay for monitoring.`,
+      answer: `Often, yes. Most one level and two level procedures are performed on a same day basis, and patients go home the same day. A three level surgery, or a patient who lives far away or alone, may warrant an overnight stay. Your surgeon confirms the plan with you beforehand.`,
     },
     {
       question: `What are realistic expectations after ${label} surgery?`,
-      answer: `Most patients notice gradual improvement in nerve related pain over weeks. Numbness can take longer to resolve. Physical therapy and activity modification remain important during recovery to protect adjacent levels.`,
+      answer: `The clearest improvement is usually in the radiating arm or leg symptoms caused by a compressed nerve. Axial neck or back pain can improve too, though it may respond more gradually. Walking is the main activity for the first four weeks, and most patients return to everyday activity within weeks, with heavier work taking longer.`,
     },
     {
       question: 'How do I prepare for a surgical consultation?',
       answer:
-        'Bring prior MRI or CT reports, a medication list, and notes about symptoms that limit work or sleep. Write down questions about risks, recovery time, and return to activity so we can address them during your visit.',
+        'Bring any prior imaging such as MRI, CT, or x ray studies, ideally on a disc, along with the reports. Bring a current medication list, a short summary of your symptoms and what makes them better or worse, and a note of treatments you have already tried. Writing your questions down in advance, and bringing someone with you, makes the visit more useful.',
     },
   ]
 }

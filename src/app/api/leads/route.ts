@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true })
   }
 
-  // TODO: Persist to Supabase leads table when configured. Do not send guide email until Dr. Abrahams approves copy.
+  // TODO: Persist to Supabase leads table and send the patient guide (public/ISS-Understanding-Your-Spine-Patient-Guide.pdf) once an email provider is configured.
   console.log(
     JSON.stringify({
       ts,

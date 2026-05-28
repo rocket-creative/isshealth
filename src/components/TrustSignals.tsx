@@ -10,10 +10,6 @@ export function TrustSignals({ className = '' }: { className?: string }) {
       </li>
       <li className="flex items-center gap-2">
         <span className="w-2 h-2 bg-iss-teal" aria-hidden="true" />
-        Most major insurance accepted
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="w-2 h-2 bg-iss-teal" aria-hidden="true" />
         4,000+ spine surgeries performed
       </li>
     </ul>

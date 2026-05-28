@@ -6,7 +6,6 @@ const referralSources = [
   'Google Search',
   'Doctor Referral',
   'Friend or Family',
-  'Insurance Directory',
   'Other',
   '',
 ] as const

@@ -46,6 +46,33 @@ export default function LocationsPage() {
         <LocationsSection variant="compact" />
       </section>
 
+      <section className="px-6 lg:px-12 pb-12 md:pb-16 bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+          <div className="border-l-4 border-iss-teal pl-6">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-iss-ink uppercase tracking-tight">
+              Office Hours
+            </h2>
+            <p className="mt-4 text-iss-body font-light leading-relaxed max-w-prose">
+              By appointment. Call{' '}
+              <a href="tel:+19149483008" className="text-iss-teal font-bold link-underline">
+                (914) 948 3008
+              </a>{' '}
+              to schedule or to confirm current hours. Phones are answered Monday through Friday, 8am to 5pm ET.
+            </p>
+          </div>
+          <div className="border-l-4 border-iss-teal pl-6">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-iss-ink uppercase tracking-tight">
+              Getting Here
+            </h2>
+            <p className="mt-4 text-iss-body font-light leading-relaxed max-w-prose">
+              The office sits along the Westchester Avenue corridor in West Harrison, with easy access from I-287 and the
+              Hutchinson River Parkway. The nearest Metro North stations are White Plains and Rye on the New Haven Line, a
+              short drive away. Turn by turn directions are available through the map on this page.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <BottomCta />
     </>
   )
