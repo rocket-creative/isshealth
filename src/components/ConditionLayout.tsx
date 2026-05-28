@@ -179,7 +179,7 @@ export function BottomCta() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             href="/appointments/"
-            className="btn-arrow inline-flex items-center gap-3 bg-iss-coral hover:bg-iss-coral/90 text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            className="btn-arrow inline-flex items-center gap-3 bg-iss-coral-dark hover:bg-iss-coral text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
           >
             <span>Schedule Your Consultation</span>
             <span className="arrow">→</span>

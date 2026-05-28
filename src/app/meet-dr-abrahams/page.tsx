@@ -71,7 +71,7 @@ export default function MeetDrAbrahamsPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="#appointment"
-                className="btn-arrow inline-flex items-center gap-3 bg-iss-coral hover:bg-iss-coral/90 text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors"
+                className="btn-arrow inline-flex items-center gap-3 bg-iss-coral-dark hover:bg-iss-coral text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors"
               >
                 <span>Request Consultation</span>
                 <span className="arrow">→</span>

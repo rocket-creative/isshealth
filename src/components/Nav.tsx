@@ -185,7 +185,7 @@ export function Nav() {
     <>
       <header className="sticky top-0 z-50 bg-white" ref={dropdownRef}>
         {/* Coral utility bar */}
-        <div className="bg-iss-coral text-white text-xs">
+        <div className="bg-iss-coral-dark text-white text-xs">
           <div className="px-6 lg:px-12 py-2 flex items-center justify-end gap-5">
             <a
               href="mailto:info@nybrainspine.com"

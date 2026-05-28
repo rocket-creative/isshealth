@@ -8,6 +8,7 @@ const config: Config = {
         'iss-teal': '#05668D',
         'iss-teal-dark': '#034862',
         'iss-coral': '#F72E57',
+        'iss-coral-dark': '#C81D44',
         'iss-ink': '#111111',
         'iss-body': '#333333',
         'iss-alt': '#F4F4F4',
