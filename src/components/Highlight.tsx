@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-/** Wraps copy that needs human review before publish. */
+/** Content is approved; renders children with no review highlight. */
 export function Highlight({ children }: { children: ReactNode }) {
-  return <span className="bg-yellow-100 dark:bg-yellow-900/40">{children}</span>
+  return <>{children}</>
 }
