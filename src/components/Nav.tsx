@@ -41,6 +41,7 @@ const cervicalLinks: SubLink[] = [
 ]
 
 const mainLinks = [
+  { href: '/concussion-program/', label: 'Concussion Program' },
   { href: '/innovations/', label: 'Innovations' },
   { href: '/in-the-news/', label: 'In The News' },
 ]

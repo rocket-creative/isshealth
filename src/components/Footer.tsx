@@ -71,6 +71,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/concussion-program/" className="link-underline hover:text-white transition-colors">
+                Concussion Program
+              </Link>
+            </li>
+            <li>
               <Link href="/innovations/" className="link-underline hover:text-white transition-colors">
                 Innovations
               </Link>

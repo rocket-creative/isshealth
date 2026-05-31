@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/the-lumbar-center/non-surgical-options/',
     '/cervical-spine/',
     '/lumbar-spine/',
+    '/concussion-program/',
     '/meet-dr-abrahams/',
   ]
 

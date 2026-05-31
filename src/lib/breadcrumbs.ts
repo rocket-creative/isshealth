@@ -14,6 +14,7 @@ const DEFAULT_SEGMENT_LABELS: Record<string, string> = {
   'the-lumbar-center': 'The Lumbar Center',
   'cervical-spine': 'Cervical Spine',
   'lumbar-spine': 'Lumbar Spine',
+  'concussion-program': 'Concussion Program',
   'non-surgical-options': 'Non Surgical Options',
   'surgical-options': 'Surgical Options',
 }

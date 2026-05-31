@@ -78,6 +78,11 @@ export const PAGE_SEO = {
     description:
       'Expert lumbar spine surgery including microdiscectomy, laminectomy, and fusion. Evidence based care in West Harrison, NY. Request a consultation online or call (914) 948 3008.',
   },
+  concussionProgram: {
+    title: 'Concussion Program Westchester NY | ISS Health',
+    description:
+      'Expert concussion and post concussion care in West Harrison, NY. Neurological evaluation supported by the Kavera Synaptix telehealth and AI platform. Call (914) 948 3008.',
+  },
 } satisfies Record<string, PageSeo>
 
 export const CONDITION_SEO: Record<string, PageSeo> = {
