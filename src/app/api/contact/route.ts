@@ -23,8 +23,14 @@ const schema = z.object({
   message: z.string().max(2000).optional().default(''),
   referralSource: z.enum(referralSources).optional().default(''),
   company: z.string().max(200).optional().default(''),
+  formType: z.enum(['appointment', 'concussion']).optional().default('appointment'),
   recaptchaToken: z.string().max(2000).optional().default(''),
 })
+
+const SUBJECTS: Record<'appointment' | 'concussion', string> = {
+  appointment: 'New appointment request from iss.health',
+  concussion: 'New concussion program inquiry from iss.health',
+}
 
 export const runtime = 'nodejs'
 
@@ -60,7 +66,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Please check the form and try again.' }, { status: 400 })
   }
 
-  const { company, email, phone, diagnosis, message, firstName, lastName, referralSource, recaptchaToken } = parsed.data
+  const { company, email, phone, diagnosis, message, firstName, lastName, referralSource, formType, recaptchaToken } =
+    parsed.data
   if (company.trim().length > 0) {
     console.log(JSON.stringify({ ts, endpoint: '/api/contact', ok: false, reason: 'honeypot' }))
     return NextResponse.json({ success: true })
@@ -85,9 +92,10 @@ export async function POST(req: NextRequest) {
 
   try {
     const resend = new Resend(resendKey)
-    const subject = 'New appointment request from iss.health'
+    const subject = SUBJECTS[formType]
+    const heading = formType === 'concussion' ? 'New concussion program inquiry' : 'New appointment request'
     const html = `
-      <h2 style="font-family:sans-serif">New appointment request</h2>
+      <h2 style="font-family:sans-serif">${heading}</h2>
       <p><strong>Name:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p>
       <p><strong>Email:</strong> ${escapeHtml(email)}</p>
       <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>

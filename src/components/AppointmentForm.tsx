@@ -19,9 +19,10 @@ const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
 
 type AppointmentFormProps = {
   showTestimonial?: boolean
+  formType?: 'appointment' | 'concussion'
 }
 
-export function AppointmentForm({ showTestimonial = false }: AppointmentFormProps) {
+export function AppointmentForm({ showTestimonial = false, formType = 'appointment' }: AppointmentFormProps) {
   const router = useRouter()
   const [state, setState] = useState<FormState>('idle')
   const [errorMsg, setErrorMsg] = useState<string>('')
@@ -59,6 +60,7 @@ export function AppointmentForm({ showTestimonial = false }: AppointmentFormProp
       message: String(data.get('message') ?? ''),
       referralSource: String(data.get('referralSource') ?? ''),
       company: String(data.get('company') ?? ''),
+      formType,
       recaptchaToken,
     }
 

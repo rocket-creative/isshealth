@@ -336,7 +336,7 @@ export default function ConcussionProgramPage() {
             </p>
           </div>
           <div className="lg:col-span-7">
-            <AppointmentForm />
+            <AppointmentForm formType="concussion" />
           </div>
         </div>
       </section>

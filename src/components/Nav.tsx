@@ -41,10 +41,11 @@ const cervicalLinks: SubLink[] = [
 ]
 
 const mainLinks = [
-  { href: '/concussion-program/', label: 'Concussion Program' },
   { href: '/innovations/', label: 'Innovations' },
   { href: '/in-the-news/', label: 'In The News' },
 ]
+
+const concussionLink = { href: '/concussion-program/', label: 'Concussion Program' }
 
 export function Nav() {
   const [open, setOpen] = useState(false)
@@ -164,6 +165,13 @@ export function Nav() {
           ))}
         </ul>
         <Link
+          href={concussionLink.href}
+          className="inline-flex w-full items-center justify-center gap-2 bg-iss-coral text-white px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] min-h-[56px] hover:bg-iss-coral-dark transition-colors mb-4"
+          onClick={() => setOpen(false)}
+        >
+          <span>{concussionLink.label}</span>
+        </Link>
+        <Link
           href="/appointments/"
           className="btn-arrow inline-flex w-full items-center justify-center gap-2 bg-iss-teal text-white px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] min-h-[56px] hover:bg-iss-teal-dark transition-colors"
           onClick={() => setOpen(false)}
@@ -267,6 +275,12 @@ export function Nav() {
                   {l.label}
                 </Link>
               ))}
+              <Link
+                href={concussionLink.href}
+                className="inline-flex items-center whitespace-nowrap bg-iss-coral hover:bg-iss-coral-dark text-white px-5 py-2.5 font-nav text-xs uppercase tracking-[0.16em] font-bold transition-colors focus-visible:ring-2 focus-visible:ring-iss-coral focus-visible:outline-none"
+              >
+                {concussionLink.label}
+              </Link>
             </div>
           </div>
         </nav>
