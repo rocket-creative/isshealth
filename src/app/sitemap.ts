@@ -22,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/cervical-spine/',
     '/lumbar-spine/',
     '/concussion-program/',
+    '/concussion-program/post-concussion-syndrome/',
+    '/concussion-program/sports-concussion-return-to-play/',
+    '/concussion-program/concussion-after-car-accident/',
+    '/concussion-program/concussion-symptoms/',
+    '/concussion-program/telehealth-concussion-care/',
+    '/concussion-program/pediatric-youth-concussion/',
     '/meet-dr-abrahams/',
   ]
 

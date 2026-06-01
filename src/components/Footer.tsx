@@ -35,7 +35,7 @@ export function Footer() {
         <div>
           <p className="font-bold uppercase tracking-[0.18em] text-xs mb-4 text-iss-coral">Main Office</p>
           <address className="not-italic text-white/70 text-sm leading-relaxed font-light">
-            <p className="font-bold text-white">New York Brain &amp; Spine Surgery, P.C.</p>
+            <p className="font-bold text-white">Institute For Spine Surgery</p>
             <p className="mt-2">244 Westchester Avenue, Suite 209</p>
             <p>West Harrison, NY 10604</p>
             <a href="tel:+19149483008" className="mt-3 inline-block link-underline text-iss-coral font-bold">

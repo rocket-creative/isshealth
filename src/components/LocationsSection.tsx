@@ -18,7 +18,7 @@ export function LocationsSection({ variant = 'full' }: LocationsSectionProps) {
         <div className="bg-white border-l-4 border-iss-teal p-8 md:p-10">
           <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-coral font-bold">Main Office</p>
           <p className="mt-3 font-heading text-2xl md:text-3xl font-bold text-iss-ink uppercase tracking-tight leading-tight">
-            New York Brain &amp; Spine Surgery, P.C.
+            Institute For Spine Surgery
           </p>
           <div className="mt-6 space-y-4 text-iss-body font-light">
             <div className="flex gap-3">

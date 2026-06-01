@@ -71,7 +71,7 @@ export default function ProvidersPage() {
           <p>
             Dr. John Abrahams treats disorders of the brain and spine. He is the author of numerous patents, has authored over 30
             publications in peer reviewed journals and textbooks, and has given lectures at many national and local meetings. In
-            addition to being the past President of BSSNY, he is now President of New York Brain and Spine Surgery. He is also
+            addition to being the past President of BSSNY, he is now President of the Institute For Spine Surgery. He is also
             Northern Westchester Hospital&apos;s Co Director of the Spine Section of the Orthopedic and Spine Institute.
           </p>
           <p>

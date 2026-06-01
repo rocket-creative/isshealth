@@ -17,7 +17,7 @@ export const metadata: Metadata = buildMetadata({
 
 const credentials = [
   'Board certified neurosurgeon, in practice since 2002',
-  'President, New York Brain and Spine Surgery, P.C.',
+  'President, Institute For Spine Surgery',
   'Past President, Brain and Spine Surgeons of New York (2015 — 2023)',
   'Co Director, Spine Section, Northern Westchester Hospital Orthopedic and Spine Institute',
   'Founder, Brain and Spine Research Institute',

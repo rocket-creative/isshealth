@@ -180,7 +180,7 @@ export function ContactUsToday() {
           <div>
             <p className="font-body text-[11px] uppercase tracking-[0.18em] font-bold text-iss-body/70">Office</p>
             <address className="mt-2 not-italic text-iss-body font-light leading-relaxed">
-              New York Brain &amp; Spine Surgery, P.C.
+              Institute For Spine Surgery
               <br />
               244 Westchester Avenue, Suite 209
               <br />

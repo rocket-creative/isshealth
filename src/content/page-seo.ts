@@ -79,9 +79,39 @@ export const PAGE_SEO = {
       'Expert lumbar spine surgery including microdiscectomy, laminectomy, and fusion. Evidence based care in West Harrison, NY. Request a consultation online or call (914) 948 3008.',
   },
   concussionProgram: {
-    title: 'Concussion Program Westchester NY | ISS Health',
+    title: 'Concussion Specialist in Westchester, NY | Institute For Spine Surgery',
     description:
-      'Expert concussion and post concussion care in West Harrison, NY. Neurological evaluation supported by the Kavera telehealth and AI platform. Call (914) 948 3008.',
+      'Board certified neurosurgical care for concussion and post concussion symptoms in West Harrison and White Plains, NY. Structured evaluation supported by the Kavera platform. Call (914) 948 3008.',
+  },
+  concussionPostSyndrome: {
+    title: 'Post Concussion Syndrome Treatment | Westchester, NY',
+    description:
+      'Specialized care for lingering concussion symptoms in Westchester and White Plains, NY. Board certified neurosurgical evaluation and structured recovery tracking. Call (914) 948 3008.',
+  },
+  concussionReturnToPlay: {
+    title: 'Sports Concussion and Return to Play | Westchester, NY',
+    description:
+      'Athlete concussion evaluation and clinician directed return to play and return to learn planning in Westchester, NY. Call (914) 948 3008.',
+  },
+  concussionCarAccident: {
+    title: 'Concussion After a Car Accident | Westchester, NY',
+    description:
+      'Neurological evaluation for concussion and head injury after a car accident in Westchester and White Plains, NY. Structured assessment and follow up. Call (914) 948 3008.',
+  },
+  concussionSymptoms: {
+    title: 'Concussion Symptoms and When to See a Specialist | Westchester, NY',
+    description:
+      'Learn the common signs of a concussion, how long symptoms can last, and when to see a specialist in Westchester, NY. Call (914) 948 3008.',
+  },
+  concussionTelehealth: {
+    title: 'Telehealth Concussion Care and Virtual Follow Up | Westchester, NY',
+    description:
+      'Virtual concussion evaluation and follow up support for patients in Westchester and White Plains, NY, alongside in person care. Call (914) 948 3008.',
+  },
+  concussionPediatric: {
+    title: 'Youth and Pediatric Concussion Care | Westchester, NY',
+    description:
+      'Concussion evaluation and return to learn and return to play guidance for children and teenagers in Westchester, NY. Call (914) 948 3008.',
   },
 } satisfies Record<string, PageSeo>
 

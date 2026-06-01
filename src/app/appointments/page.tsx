@@ -105,7 +105,7 @@ export default function AppointmentsPage() {
           </div>
           <div className="bg-iss-teal text-white p-8">
             <p className="font-body text-xs uppercase tracking-[0.18em] font-bold">Main Office</p>
-            <p className="mt-3 font-heading text-xl font-bold uppercase tracking-tight">New York Brain and Spine Surgery, P.C.</p>
+            <p className="mt-3 font-heading text-xl font-bold uppercase tracking-tight">Institute For Spine Surgery</p>
             <address className="mt-3 not-italic text-white/90 font-light text-sm leading-relaxed">
               244 Westchester Avenue, Suite 209
               <br />

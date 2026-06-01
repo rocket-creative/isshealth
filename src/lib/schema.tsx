@@ -229,6 +229,76 @@ export function serviceSchema(params: { name: string; description: string; url: 
   return medicalServiceSchema(params)
 }
 
+/**
+ * MedicalWebPage for an individual cluster page. `about` describes the condition
+ * or topic the page covers; audience is the patient reader.
+ * [DR. ABRAHAMS TO APPROVE] — add lastReviewed date and reviewer once confirmed.
+ */
+export function medicalWebPageSchema({
+  name,
+  description,
+  url,
+  about,
+}: {
+  name: string
+  description: string
+  url: string
+  about: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name,
+    description,
+    url,
+    about: { '@type': 'MedicalCondition', name: about },
+    audience: { '@type': 'PatientsAudience' },
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+  }
+}
+
+/**
+ * Clinic entity for the concussion program, expressed as the practice that
+ * delivers the care (Institute For Spine Surgery).
+ * [DR. ABRAHAMS TO APPROVE] — verify geo coordinates and office hours before launch.
+ */
+export function concussionClinicSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalClinic',
+    name: 'Institute For Spine Surgery',
+    url: `${SITE_URL}/concussion-program/`,
+    telephone: '+19149483008',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '244 Westchester Avenue, Suite 209',
+      addressLocality: 'West Harrison',
+      addressRegion: 'NY',
+      postalCode: '10604',
+      addressCountry: 'US',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 41.0176,
+      longitude: -73.7879,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '17:00',
+      },
+    ],
+    medicalSpecialty: 'Neurology',
+    sameAs: [
+      'https://www.linkedin.com/company/institute-for-spine-surgery/',
+      'https://www.instagram.com/instituteforspinesurgery',
+    ],
+  }
+}
+
 type MedicalConditionSchemaParams = {
   name: string
   description: string

@@ -143,6 +143,7 @@ export function AppointmentForm({ showTestimonial = false, formType = 'appointme
             id="email"
             name="email"
             type="email"
+            inputMode="email"
             required
             aria-required="true"
             autoComplete="email"
@@ -157,6 +158,7 @@ export function AppointmentForm({ showTestimonial = false, formType = 'appointme
             id="phone"
             name="phone"
             type="tel"
+            inputMode="tel"
             required
             aria-required="true"
             autoComplete="tel"
