@@ -15,6 +15,15 @@ export const metadata: Metadata = buildMetadata({
   image: `${SITE_URL}/images/dr-john-abrahams.jpg`,
 })
 
+const externalLinks = [
+  { label: 'Dr. Abrahams on LinkedIn', href: 'https://www.linkedin.com/in/john-m-abrahams-9a93322b/' },
+  { label: "Dr. Abrahams' CV", href: 'https://iss.health/dr-john-abrahams-cv/' },
+  { label: 'Brain and Spine Research Institute', href: 'https://www.brainandspineinstitute.org/' },
+  { label: 'EndoMedix', href: 'https://www.endomedix.com/' },
+  { label: 'Capseus', href: 'https://www.capseus.com/' },
+  { label: 'DTX Medical', href: 'https://www.dtxmed.com/' },
+]
+
 export default function ProvidersPage() {
   return (
     <>
@@ -97,6 +106,25 @@ export default function ProvidersPage() {
               <span>View Innovations</span>
               <span className="arrow">→</span>
             </Link>
+          </div>
+
+          <div className="not-prose mt-10 border-t border-stone-200 pt-8">
+            <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">Profile and affiliations</p>
+            <ul className="mt-4 flex flex-col divide-y divide-stone-200 border-t border-b border-stone-200 list-none">
+              {externalLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between gap-4 py-4 text-iss-ink hover:text-iss-teal font-body text-sm font-bold uppercase tracking-wide transition-colors focus-visible:ring-2 focus-visible:ring-iss-teal focus-visible:outline-none"
+                  >
+                    <span>{link.label}</span>
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </AnimateOnScroll>
       </section>

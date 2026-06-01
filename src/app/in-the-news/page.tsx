@@ -4,10 +4,11 @@ import Link from 'next/link'
 import { buildMetadata, toCanonicalUrl } from '@/lib/metadata'
 import { PAGE_SEO } from '@/content/page-seo'
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs'
-import { JsonLd, articleSchema, webPageSchema } from '@/lib/schema'
+import { JsonLd, webPageSchema } from '@/lib/schema'
 import { BottomCta } from '@/components/ConditionLayout'
 import { AnimateOnScroll } from '@/components/AnimateOnScroll'
 import { Highlight } from '@/components/Highlight'
+import { articlesByDate } from '@/content/news'
 
 export const metadata: Metadata = buildMetadata({
   title: PAGE_SEO.inTheNews.title,
@@ -15,23 +16,9 @@ export const metadata: Metadata = buildMetadata({
   path: '/in-the-news/',
 })
 
-const articles = [
-  {
-    title: 'Neurosurgeons Navigate Changing Landscape: Balancing Costs, Reimbursements, and Private Equity',
-    datePublished: '2023-11-28',
-    dateDisplay: 'November 28, 2023',
-    location: 'West Harrison, NY',
-    summary:
-      'In a rapidly evolving healthcare landscape, neurosurgery is undergoing significant transformations. The article authored by John M. Abrahams, MD, sheds light on the changing dynamics within the neurosurgical field, addressing critical issues surrounding costs, reimbursements, and the growing influence of private equity in healthcare.',
-    image: '/images/grand-opening.jpeg',
-    alt: 'Press event at Institute For Spine Surgery',
-    url: toCanonicalUrl('/in-the-news/'),
-  },
-]
+const articles = articlesByDate()
 
 export default function NewsPage() {
-  const article = articles[0]
-
   return (
     <>
       <JsonLd
@@ -41,14 +28,6 @@ export default function NewsPage() {
             name: PAGE_SEO.inTheNews.title,
             description: PAGE_SEO.inTheNews.description,
             url: toCanonicalUrl('/in-the-news/'),
-          }),
-          articleSchema({
-            headline: article.title,
-            description: article.summary,
-            url: article.url,
-            image: `${toCanonicalUrl('/').replace(/\/$/, '')}${article.image}`,
-            datePublished: article.datePublished,
-            dateModified: article.datePublished,
           }),
         ]}
       />
@@ -73,10 +52,16 @@ export default function NewsPage() {
         </h2>
         <div className="grid grid-cols-1 gap-12 md:gap-16">
           {articles.map((a) => (
-            <AnimateOnScroll key={a.title} animation="up" className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
-              <div className="lg:col-span-5 relative aspect-[4/3] overflow-hidden bg-iss-alt">
-                <Image src={a.image} alt={a.alt} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
-              </div>
+            <AnimateOnScroll key={a.slug} animation="up" className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+              <Link href={`/in-the-news/${a.slug}/`} className="lg:col-span-5 relative aspect-[4/3] overflow-hidden bg-iss-alt group">
+                <Image
+                  src={a.image}
+                  alt={a.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </Link>
               <article className="lg:col-span-7 max-w-prose">
                 <p className="font-body text-xs uppercase tracking-[0.18em] text-iss-coral font-bold">
                   <time dateTime={a.datePublished}>{a.dateDisplay}</time> · {a.location}
@@ -88,11 +73,20 @@ export default function NewsPage() {
                   </Link>
                 </p>
                 <h3 className="mt-3 font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-iss-ink uppercase tracking-tight leading-tight">
-                  {a.title}
+                  <Link href={`/in-the-news/${a.slug}/`} className="hover:text-iss-teal transition-colors">
+                    {a.title}
+                  </Link>
                 </h3>
                 <p className="mt-5 text-iss-body font-light text-base md:text-lg leading-relaxed">
                   <Highlight>{a.summary}</Highlight>
                 </p>
+                <Link
+                  href={`/in-the-news/${a.slug}/`}
+                  className="btn-arrow mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-iss-teal hover:text-iss-teal-dark transition-colors"
+                >
+                  <span>Read Article</span>
+                  <span className="arrow">→</span>
+                </Link>
               </article>
             </AnimateOnScroll>
           ))}

@@ -30,6 +30,7 @@ interface ConditionLayoutProps {
   schemaDetails?: ConditionSchemaDetails
   faqs?: FaqItem[]
   faqHeading?: string
+  faqIntro?: string
   showClinicalBlocks?: boolean
   children: React.ReactNode
 }
@@ -45,6 +46,7 @@ export function ConditionLayout({
   schemaDetails,
   faqs,
   faqHeading,
+  faqIntro,
   showClinicalBlocks = true,
   children,
 }: ConditionLayoutProps) {
@@ -151,6 +153,7 @@ export function ConditionLayout({
           id="condition-faq"
           headingId="condition-faq-heading"
           title={faqHeading ?? `What should I know about ${title.toLowerCase()}?`}
+          subtitle={faqIntro}
           items={faqs}
         />
       ) : null}
@@ -192,7 +195,9 @@ export function ContactUsToday() {
           </div>
           <div>
             <p className="font-body text-[11px] uppercase tracking-[0.18em] font-bold text-iss-body/70">Email</p>
-            <p className="mt-2 text-iss-body font-light">info@instituteforspinesurgery.com</p>
+            <a href="mailto:info@nybrainspine.com" className="mt-2 inline-block text-iss-teal font-bold link-underline">
+              info@nybrainspine.com
+            </a>
           </div>
         </div>
       </div>

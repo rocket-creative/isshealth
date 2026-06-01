@@ -44,6 +44,11 @@ const companies = [
     logo: '/images/neurobotix.png',
     logoAlt: 'Neurobotix company logo',
   },
+  {
+    name: 'DTX Medical',
+    description:
+      'A text based electronic patient reported outcome platform Dr. Abrahams founded in 2022. DTX used automated SMS surveys to capture patient outcome data billable through Remote Therapeutic Monitoring, generating revenue for providers while improving data collection. The company was acquired by Memora Health in 2024.',
+  },
 ]
 
 const patents = [
@@ -110,7 +115,7 @@ export default function InnovationsPage() {
       <section className="bg-white px-6 lg:px-12 py-12 md:py-16">
         <div className="mb-12 max-w-2xl">
           <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">Companies Founded</p>
-          <h2 className="mt-4 font-heading text-h2">Four ventures moving patient care forward.</h2>
+          <h2 className="mt-4 font-heading text-h2">Five ventures moving patient care forward.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {companies.map((c, i) => (

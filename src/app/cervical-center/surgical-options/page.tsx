@@ -20,6 +20,7 @@ export default function CervicalSurgicalOptionsPage() {
       canonicalPath="/cervical-center/surgical-options/"
       schemaKind="service"
       faqs={surgicalOptionsFaqs('cervical')}
+      faqIntro="With the advent of the internet, shared communication, and cell phones, almost everyone can share their story of surgery or medical care with the world. There is a downside, though, where information can be outdated, one sided, misleading, or altogether false. Below we address some of the myths of cervical spine surgery that patients raise in the office when scheduling surgery."
       breadcrumbs={[
         { name: 'Home', url: '/' },
         { name: 'Cervical Center', url: '/cervical-center/' },

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/metadata'
 import { allCervicalSlugs, allLumbarSlugs } from '@/content/conditions'
+import { allArticleSlugs } from '@/content/news'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -26,8 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const cervical = allCervicalSlugs().map((s) => `/cervical-center/${s}/`)
   const lumbar = allLumbarSlugs().map((s) => `/common-diagnosis/${s}/`)
+  const news = allArticleSlugs().map((s) => `/in-the-news/${s}/`)
 
-  return [...staticRoutes, ...cervical, ...lumbar].map((path) => ({
+  return [...staticRoutes, ...cervical, ...lumbar, ...news].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: now,
     changeFrequency: path === '/' ? 'weekly' : 'monthly',

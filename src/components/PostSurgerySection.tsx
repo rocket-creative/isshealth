@@ -62,6 +62,9 @@ export function PostSurgerySection({ kind = 'cervical' }: PostSurgerySectionProp
         your exercise goals with your surgeon.
       </p>
 
+      <h3>Sex</h3>
+      <p>It is safe to start having sex in the days after surgery.</p>
+
       <h3>Postoperative visits</h3>
       <p>
         You will see your surgeon after surgery in seven days, one month, three months, and then one year. You should have x rays
