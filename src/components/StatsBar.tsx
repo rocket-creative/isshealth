@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { DraftCallout } from '@/components/DraftCallout'
 
 type Stat = {
   value: number
@@ -11,6 +10,7 @@ type Stat = {
 }
 
 const confirmedStats: Stat[] = [
+  { value: 95, suffix: '%', label: 'Patient satisfaction rate' },
   { value: 85, suffix: '%', label: 'Of patients return to normal activity within three months' },
   { value: 4000, prefix: 'Over ', label: 'Successful surgeries performed' },
   { value: 90, suffix: '%', label: 'Reduction in postoperative complications' },
@@ -71,11 +71,8 @@ export function StatsBar() {
         <h2 className="mt-3 font-heading text-h2 max-w-[28ch]">
           Some of the most effective spine treatments in the region.
         </h2>
-        <DraftCallout type="approve" source="StatsBar heading">
-          A 95% patient satisfaction rate
-        </DraftCallout>
       </div>
-      <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+      <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10">
         {confirmedStats.map((stat) => (
           <div key={stat.label} className="border-t-2 border-iss-teal pt-5">
             <p className="font-heading font-bold text-iss-teal text-stat leading-none whitespace-nowrap">

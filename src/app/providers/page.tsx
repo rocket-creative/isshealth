@@ -38,7 +38,7 @@ export default function ProvidersPage() {
           <span className="text-iss-ink font-bold">Providers</span>
         </nav>
         <p className="font-body text-xs uppercase tracking-[0.22em] text-iss-teal font-bold">Our Providers</p>
-        <h1 className="mt-4 font-gotham font-bold text-iss-ink text-h1 uppercase">Meet the surgeons who lead our practice.</h1>
+        <h1 className="mt-4 font-gotham font-bold text-iss-ink text-h1 uppercase">Meet the surgeon who leads our practice.</h1>
       </header>
 
       <section className="px-6 lg:px-12 py-12 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

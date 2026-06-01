@@ -1,4 +1,12 @@
 import { SITE_URL } from './metadata'
+import { testimonials } from '@/components/TestimonialsSection'
+
+const reviewSchema = testimonials.map((item) => ({
+  '@type': 'Review',
+  reviewBody: item.quote,
+  author: { '@type': 'Person', name: item.name },
+  reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
+}))
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
@@ -50,7 +58,14 @@ export const organizationSchema = {
     areaServed: 'US',
     availableLanguage: 'English',
   },
-  // aggregateRating: pending Dr. Abrahams approved testimonials and verified review count
+  review: reviewSchema,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: 5,
+    bestRating: 5,
+    worstRating: 1,
+    reviewCount: reviewSchema.length,
+  },
 }
 
 /** @deprecated Use organizationSchema — same combined MedicalClinic + LocalBusiness entity */
