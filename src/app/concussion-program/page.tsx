@@ -59,7 +59,7 @@ const journey = [
 const services = [
   { title: 'Acute Concussion Evaluation', body: 'Prompt neurological assessment following a head injury, with clear guidance on next steps and what to monitor.' },
   { title: 'Post Concussion Syndrome', body: 'Structured management for patients with persistent symptoms such as headache, cognitive difficulty, dizziness, or fatigue.' },
-  { title: 'Symptom Monitoring', body: 'Standardized, longitudinal tracking of recovery through the Kavera Synaptix platform between and during visits.' },
+  { title: 'Symptom Monitoring', body: 'Standardized, longitudinal tracking of recovery through the Kavera platform between and during visits.' },
   { title: 'Telehealth Follow Up', body: 'Convenient virtual visits that support timely reassessment and continuity of care throughout the recovery period.' },
   { title: 'Return to Activity Guidance', body: 'Clinician directed planning for a safe, stepwise return to work, school, or athletic activity.' },
   { title: 'Coordinated Documentation', body: 'Organized, consistent clinical records that clearly capture assessment, progress, and management over time.' },
@@ -75,12 +75,12 @@ const concussionFaqs: FaqItem[] = [
   {
     question: 'What is the concussion program at the Institute For Spine Surgery?',
     answer:
-      'It is a clinician led program for the evaluation and management of concussion and post concussion symptoms. Our neurological team pairs hands on assessment with the Kavera Synaptix telehealth and AI platform to deliver structured, evidence informed care.',
+      'It is a clinician led program for the evaluation and management of concussion and post concussion symptoms. Our neurological team pairs hands on assessment with the Kavera telehealth and AI platform to deliver structured, evidence informed care.',
   },
   {
-    question: 'What is Kavera Synaptix?',
+    question: 'What is Kavera?',
     answer:
-      'Kavera Synaptix is an automated concussion management platform that integrates telehealth and artificial intelligence. It supports clinicians with assessment, symptom tracking, and recommended treatment pathways consistent with established concussion guidelines. It is a clinical decision support tool and does not replace professional medical judgment.',
+      'Kavera is an automated concussion management platform that integrates telehealth and artificial intelligence. It supports clinicians with assessment, symptom tracking, and recommended treatment pathways consistent with established concussion guidelines. It is a clinical decision support tool and does not replace professional medical judgment.',
   },
   {
     question: 'When should I be evaluated after a head injury?',
@@ -129,7 +129,7 @@ export default function ConcussionProgramPage() {
             Expert concussion care, guided by intelligent technology.
           </h1>
           <p className="mt-5 max-w-xl text-white/90 text-base md:text-lg font-light leading-relaxed">
-            Our neurological team combines clinical expertise with Kavera Synaptix, an AI and telehealth platform built to
+            Our neurological team combines clinical expertise with Kavera, an AI and telehealth platform built to
             support structured assessment, monitoring, and evidence based management of concussion and post concussion syndrome.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
@@ -178,7 +178,7 @@ export default function ConcussionProgramPage() {
                 developed a more structured, technology supported approach to care.
               </p>
               <p>
-                That experience became the foundation for Kavera Synaptix, an automated platform that integrates telehealth and
+                That experience became the foundation for Kavera, an automated platform that integrates telehealth and
                 artificial intelligence to assist clinicians with assessment, symptom tracking, and recommended treatment pathways
                 consistent with established concussion guidelines.
               </p>
@@ -210,15 +210,15 @@ export default function ConcussionProgramPage() {
         </div>
       </section>
 
-      {/* Platform / Kavera Synaptix */}
+      {/* Platform / Kavera */}
       <section id="platform" className="bg-iss-alt px-6 lg:px-12 py-12 md:py-16 scroll-mt-32" aria-labelledby="platform-heading">
         <div className="mb-10 max-w-2xl">
-          <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">Kavera Synaptix</p>
+          <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">Kavera</p>
           <h2 id="platform-heading" className="mt-4 font-heading text-h2">
             The technology behind the program.
           </h2>
           <p className="mt-5 text-iss-body font-light leading-relaxed">
-            Kavera Synaptix is an automated concussion management platform that supports, never replaces, clinical decision making,
+            Kavera is an automated concussion management platform that supports, never replaces, clinical decision making,
             helping our team deliver structured, consistent care.
           </p>
         </div>
@@ -309,7 +309,7 @@ export default function ConcussionProgramPage() {
         id="faq"
         headingId="faq-heading"
         title="Concussion care questions."
-        subtitle="Answers to common questions about our concussion program and the Kavera Synaptix platform."
+        subtitle="Answers to common questions about our concussion program and the Kavera platform."
         items={concussionFaqs}
         className="bg-white px-6 lg:px-12 py-12 md:py-16"
       />
@@ -330,7 +330,7 @@ export default function ConcussionProgramPage() {
               .
             </p>
             <p className="mt-6 text-iss-body/70 font-light text-xs leading-relaxed max-w-md">
-              This page is for general informational purposes only and does not constitute medical advice. Kavera Synaptix is a
+              This page is for general informational purposes only and does not constitute medical advice. Kavera is a
               clinical decision support tool used by our care team and does not replace professional medical judgment. If you have
               experienced a head injury, seek appropriate medical evaluation.
             </p>

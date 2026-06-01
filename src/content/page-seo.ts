@@ -81,7 +81,7 @@ export const PAGE_SEO = {
   concussionProgram: {
     title: 'Concussion Program Westchester NY | ISS Health',
     description:
-      'Expert concussion and post concussion care in West Harrison, NY. Neurological evaluation supported by the Kavera Synaptix telehealth and AI platform. Call (914) 948 3008.',
+      'Expert concussion and post concussion care in West Harrison, NY. Neurological evaluation supported by the Kavera telehealth and AI platform. Call (914) 948 3008.',
   },
 } satisfies Record<string, PageSeo>
 
