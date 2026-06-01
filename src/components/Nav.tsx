@@ -47,6 +47,16 @@ const mainLinks = [
 
 const concussionLink = { href: '/concussion-program/', label: 'Concussion Program' }
 
+const concussionLinks: SubLink[] = [
+  { href: '/concussion-program/', label: 'Program Overview' },
+  { href: '/concussion-program/post-concussion-syndrome/', label: 'Post Concussion Syndrome' },
+  { href: '/concussion-program/sports-concussion-return-to-play/', label: 'Sports Concussion and Return to Play' },
+  { href: '/concussion-program/concussion-after-car-accident/', label: 'Concussion After a Car Accident' },
+  { href: '/concussion-program/concussion-symptoms/', label: 'Concussion Symptoms' },
+  { href: '/concussion-program/telehealth-concussion-care/', label: 'Telehealth Concussion Care' },
+  { href: '/concussion-program/pediatric-youth-concussion/', label: 'Youth and Pediatric Concussion' },
+]
+
 export function Nav() {
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -87,38 +97,58 @@ export function Nav() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const Dropdown = ({ id, label, links }: { id: string; label: string; links: SubLink[] }) => (
-    <div className="relative h-full flex items-center">
-      <button
-        className="flex items-center gap-1 whitespace-nowrap text-iss-ink hover:text-iss-teal font-nav text-xs uppercase tracking-[0.16em] font-bold transition-colors focus-visible:ring-2 focus-visible:ring-iss-teal focus-visible:outline-none"
-        onClick={() => setOpenDropdown(openDropdown === id ? null : id)}
-        aria-expanded={openDropdown === id}
-        aria-haspopup="true"
-      >
-        {label}
-        <ChevronDown
-          size={12}
-          className={`transition-transform ${openDropdown === id ? 'rotate-180' : ''}`}
-          aria-hidden="true"
-        />
-      </button>
-      {openDropdown === id && (
-        <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-stone-200 shadow-xl z-20" role="menu">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="block px-5 py-3 border-b border-stone-100 last:border-0 text-iss-body hover:bg-iss-alt hover:text-iss-teal text-sm font-body focus-visible:ring-2 focus-visible:ring-iss-teal focus-visible:outline-none"
-              role="menuitem"
-              onClick={() => setOpenDropdown(null)}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
-  )
+  const Dropdown = ({
+    id,
+    label,
+    links,
+    variant = 'link',
+  }: {
+    id: string
+    label: string
+    links: SubLink[]
+    variant?: 'link' | 'cta'
+  }) => {
+    const isCta = variant === 'cta'
+    return (
+      <div className="relative h-full flex items-center">
+        <button
+          className={
+            isCta
+              ? 'inline-flex items-center gap-1.5 whitespace-nowrap bg-iss-coral hover:bg-iss-coral-dark text-white px-5 py-2.5 font-nav text-xs uppercase tracking-[0.16em] font-bold transition-colors focus-visible:ring-2 focus-visible:ring-iss-coral focus-visible:outline-none'
+              : 'flex items-center gap-1 whitespace-nowrap text-iss-ink hover:text-iss-teal font-nav text-xs uppercase tracking-[0.16em] font-bold transition-colors focus-visible:ring-2 focus-visible:ring-iss-teal focus-visible:outline-none'
+          }
+          onClick={() => setOpenDropdown(openDropdown === id ? null : id)}
+          aria-expanded={openDropdown === id}
+          aria-haspopup="true"
+        >
+          {label}
+          <ChevronDown
+            size={12}
+            className={`transition-transform ${openDropdown === id ? 'rotate-180' : ''}`}
+            aria-hidden="true"
+          />
+        </button>
+        {openDropdown === id && (
+          <div
+            className={`absolute top-full mt-2 w-72 bg-white border border-stone-200 shadow-xl z-20 ${isCta ? 'right-0' : 'left-0'}`}
+            role="menu"
+          >
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="block px-5 py-3 border-b border-stone-100 last:border-0 text-iss-body hover:bg-iss-alt hover:text-iss-teal text-sm font-body focus-visible:ring-2 focus-visible:ring-iss-teal focus-visible:outline-none"
+                role="menuitem"
+                onClick={() => setOpenDropdown(null)}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    )
+  }
 
   const mobileMenu = (
     <div
@@ -164,13 +194,7 @@ export function Nav() {
             </li>
           ))}
         </ul>
-        <Link
-          href={concussionLink.href}
-          className="inline-flex w-full items-center justify-center gap-2 bg-iss-coral text-white px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] min-h-[56px] hover:bg-iss-coral-dark transition-colors mb-4"
-          onClick={() => setOpen(false)}
-        >
-          <span>{concussionLink.label}</span>
-        </Link>
+        <MobileGroup title={concussionLink.label} links={concussionLinks} onClose={() => setOpen(false)} accent />
         <Link
           href="/appointments/"
           className="btn-arrow inline-flex w-full items-center justify-center gap-2 bg-iss-teal text-white px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] min-h-[56px] hover:bg-iss-teal-dark transition-colors"
@@ -275,12 +299,7 @@ export function Nav() {
                   {l.label}
                 </Link>
               ))}
-              <Link
-                href={concussionLink.href}
-                className="inline-flex items-center whitespace-nowrap bg-iss-coral hover:bg-iss-coral-dark text-white px-5 py-2.5 font-nav text-xs uppercase tracking-[0.16em] font-bold transition-colors focus-visible:ring-2 focus-visible:ring-iss-coral focus-visible:outline-none"
-              >
-                {concussionLink.label}
-              </Link>
+              <Dropdown id="concussion" label={concussionLink.label} links={concussionLinks} variant="cta" />
             </div>
           </div>
         </nav>
@@ -291,8 +310,49 @@ export function Nav() {
   )
 }
 
-function MobileGroup({ title, links, onClose }: { title: string; links: SubLink[]; onClose: () => void }) {
+function MobileGroup({
+  title,
+  links,
+  onClose,
+  accent = false,
+}: {
+  title: string
+  links: SubLink[]
+  onClose: () => void
+  accent?: boolean
+}) {
   const [expanded, setExpanded] = useState(false)
+
+  if (accent) {
+    return (
+      <div className="mb-4">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full flex items-center justify-between min-h-[56px] px-6 bg-iss-coral text-white font-nav text-base uppercase tracking-[0.12em] font-bold focus-visible:ring-2 focus-visible:ring-iss-coral focus-visible:outline-none"
+          aria-expanded={expanded}
+        >
+          <span>{title}</span>
+          <ChevronDown size={16} className={`transition-transform ${expanded ? 'rotate-180' : ''}`} aria-hidden="true" />
+        </button>
+        {expanded && (
+          <ul className="list-none border border-t-0 border-stone-200" role="list">
+            {links.map((l) => (
+              <li key={l.href} className="border-b border-stone-100 last:border-0">
+                <Link
+                  href={l.href}
+                  className="flex items-center min-h-[48px] px-6 text-iss-body hover:text-iss-teal text-sm"
+                  onClick={onClose}
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className="mb-4 border-b border-stone-200">
       <button
