@@ -29,6 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/concussion-program/telehealth-concussion-care/',
     '/concussion-program/pediatric-youth-concussion/',
     '/meet-dr-abrahams/',
+    '/privacy-policy/',
+    '/notice-of-privacy-practices/',
   ]
 
   const cervical = allCervicalSlugs().map((s) => `/cervical-center/${s}/`)

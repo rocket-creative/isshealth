@@ -93,7 +93,14 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="px-6 lg:px-12 py-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-white/50 text-xs font-light">
           <p>© {new Date().getFullYear()} The Institute For Spine Surgery. All rights reserved.</p>
-          <p>Board certified neurosurgery, West Harrison, NY.</p>
+          <nav aria-label="Legal" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href="/notice-of-privacy-practices/" className="link-underline hover:text-white transition-colors">
+              Notice of Privacy Practices
+            </Link>
+            <Link href="/privacy-policy/" className="link-underline hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Script from 'next/script'
 import { useState } from 'react'
@@ -34,6 +35,10 @@ export function AppointmentForm({ showTestimonial = false, formType = 'appointme
 
     const form = e.currentTarget
     const data = new FormData(form)
+    // BUSINESS ASSOCIATE AGREEMENT FLAG: this form can receive health related details (diagnosis,
+    // message). Submissions are emailed via a third party service. The practice must confirm with
+    // counsel whether a BAA is required for any vendor that processes, transmits, or stores this data.
+    // Never pass form contents or condition specific parameters to analytics or advertising tools.
 
     // TODO: When NEXT_PUBLIC_RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY are configured,
     // execute grecaptcha.execute(siteKey, { action: 'appointment' }) and include recaptchaToken in payload.
@@ -216,7 +221,11 @@ export function AppointmentForm({ showTestimonial = false, formType = 'appointme
         {showTestimonial && <AppointmentTestimonial />}
         <div className="md:col-span-2 flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-2">
           <p className="text-iss-body text-xs font-light max-w-md">
-            By submitting, you consent to being contacted by our care team. We do not share your information.
+            By submitting, you consent to being contacted by our care team. We do not share your information. Read our{' '}
+            <Link href="/privacy-policy/" className="text-iss-teal font-bold link-underline">
+              privacy policy
+            </Link>
+            .
           </p>
           <button
             type="submit"

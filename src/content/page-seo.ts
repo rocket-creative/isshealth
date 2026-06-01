@@ -113,6 +113,16 @@ export const PAGE_SEO = {
     description:
       'Concussion evaluation and return to learn and return to play guidance for children and teenagers in Westchester, NY. Call (914) 948 3008.',
   },
+  privacyPolicy: {
+    title: 'Privacy Policy | Institute For Spine Surgery',
+    description:
+      'How the Institute For Spine Surgery website collects, uses, and protects information submitted through this site.',
+  },
+  noticeOfPrivacyPractices: {
+    title: 'Notice of Privacy Practices | Institute For Spine Surgery',
+    description:
+      'The Institute For Spine Surgery Notice of Privacy Practices explains how your health information may be used and disclosed and your rights regarding that information.',
+  },
 } satisfies Record<string, PageSeo>
 
 export const CONDITION_SEO: Record<string, PageSeo> = {

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
@@ -15,6 +16,9 @@ export function LeadCaptureSection() {
 
     const form = e.currentTarget
     const data = new FormData(form)
+    // BUSINESS ASSOCIATE AGREEMENT FLAG: submissions are emailed via a third party service.
+    // The practice must confirm with counsel whether a BAA is required for any vendor that
+    // processes, transmits, or stores this data, and must keep form contents out of analytics and ads.
     const payload = {
       firstName: String(data.get('firstName') ?? ''),
       email: String(data.get('email') ?? ''),
@@ -98,7 +102,11 @@ export function LeadCaptureSection() {
                 />
               </div>
               <p className="text-iss-body text-xs font-light">
-                We do not share your information.
+                We do not share your information. Read our{' '}
+                <Link href="/privacy-policy/" className="text-iss-teal font-bold link-underline">
+                  privacy policy
+                </Link>
+                .
               </p>
               <button
                 type="submit"
