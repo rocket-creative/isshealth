@@ -61,13 +61,12 @@ Next.js Image pipeline converts to WebP on demand.
 
 ## HIPAA considerations
 
-The `/api/contact` endpoint receives PHI (email, phone, diagnosis). Lock down before production:
+The `/api/contact` endpoint receives sensitive contact details (email, phone, diagnosis). Keep these safeguards in place:
 
-1. Sign a BAA with Resend (or swap for AWS SES with BAA).
-2. Do not enable Vercel Analytics. GA4 with IP anonymization only.
-3. Do not enable Google Ads remarketing lists. Conversion tracking only, no PII in events.
-4. Logs are structured and contain no form payloads. Only `{ ts, endpoint, ok }`.
-5. CSP, X-Frame-Options DENY, nosniff, HSTS are set in `next.config.ts`.
+1. Do not enable Vercel Analytics. GA4 with IP anonymization only.
+2. Do not enable Google Ads remarketing lists. Conversion tracking only, no PII in events.
+3. Logs are structured and contain no form payloads. Only `{ ts, endpoint, ok }`.
+4. CSP, X-Frame-Options DENY, nosniff, HSTS are set in `next.config.ts`.
 
 The migration plan in [../iss.health/VERCEL_MIGRATION.md](../iss.health/VERCEL_MIGRATION.md) specifies Vercel as the host. Workspace rules prefer AWS/GCP for PHI. Honor the stated stack but flag the tradeoff with the client before go live.
 
@@ -88,7 +87,6 @@ See [../iss.health/VERCEL_MIGRATION.md](../iss.health/VERCEL_MIGRATION.md) secti
 ## Pre deploy checklist
 
 - [ ] Fill `RESEND_API_KEY`, `NEXT_PUBLIC_GA4_MEASUREMENT_ID`, `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID`, `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL` in Vercel env.
-- [ ] BAA signed with Resend.
 - [ ] `npm run build` passes.
 - [ ] Confirm sitemap at `/sitemap.xml` and robots at `/robots.txt`.
 - [ ] Mobile PageSpeed ≥ 90.

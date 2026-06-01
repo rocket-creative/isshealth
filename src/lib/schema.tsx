@@ -49,7 +49,6 @@ export const organizationSchema = {
   sameAs: [
     'https://www.linkedin.com/company/institute-for-spine-surgery/',
     'https://www.instagram.com/instituteforspinesurgery',
-    'https://www.facebook.com/BrainSpineSurgeonsOfNewYork',
   ],
   contactPoint: {
     '@type': 'ContactPoint',

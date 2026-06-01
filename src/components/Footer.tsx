@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Linkedin, Instagram, Facebook } from 'lucide-react'
+import { Mail, Linkedin, Instagram } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -28,9 +28,6 @@ export function Footer() {
             </a>
             <a href="https://www.instagram.com/instituteforspinesurgery" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-iss-coral transition-colors">
               <Instagram size={18} aria-hidden="true" />
-            </a>
-            <a href="https://www.facebook.com/BrainSpineSurgeonsOfNewYork" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-iss-coral transition-colors">
-              <Facebook size={18} aria-hidden="true" />
             </a>
           </div>
         </div>

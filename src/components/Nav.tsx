@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { Menu, X, ChevronDown, Mail, Linkedin, Instagram, Facebook } from 'lucide-react'
+import { Menu, X, ChevronDown, Mail, Linkedin, Instagram } from 'lucide-react'
 
 type SubLink = { href: string; label: string }
 
@@ -201,9 +201,6 @@ export function Nav() {
             </a>
             <a href="https://www.instagram.com/instituteforspinesurgery" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:opacity-80">
               <Instagram size={14} aria-hidden="true" />
-            </a>
-            <a href="https://www.facebook.com/BrainSpineSurgeonsOfNewYork" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:opacity-80">
-              <Facebook size={14} aria-hidden="true" />
             </a>
           </div>
         </div>
