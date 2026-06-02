@@ -179,14 +179,15 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="mt-4 list-disc pl-5 space-y-2 text-iss-body font-light leading-relaxed">
               <li>
-                Our email delivery provider, which transmits your consultation request to our care team. See the{' '}
+                Our HIPAA compliant email delivery provider, which transmits your consultation request securely to our care
+                team. See the{' '}
                 <a
-                  href="https://resend.com/legal/privacy-policy"
+                  href="https://www.paubox.com/privacy-policy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-iss-teal font-bold link-underline"
                 >
-                  Resend Privacy Policy
+                  Paubox Privacy Policy
                 </a>
                 .
               </li>
