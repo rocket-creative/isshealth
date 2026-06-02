@@ -6,6 +6,11 @@ import Script from 'next/script'
 import { useState } from 'react'
 import { AppointmentTestimonial } from '@/components/AppointmentTestimonial'
 import { DraftCallout } from '@/components/DraftCallout'
+import { ContactFallback } from '@/components/ContactFallback'
+
+// Temporary: online forms are paused while the HIPAA secure email setup is
+// completed. Flip to true to restore the live appointment form.
+const FORMS_ENABLED: boolean = false
 
 type FormState = 'idle' | 'submitting' | 'error'
 
@@ -27,6 +32,18 @@ export function AppointmentForm({ showTestimonial = false, formType = 'appointme
   const router = useRouter()
   const [state, setState] = useState<FormState>('idle')
   const [errorMsg, setErrorMsg] = useState<string>('')
+  const [renderedAt] = useState(() => Date.now())
+
+  if (!FORMS_ENABLED) {
+    return (
+      <ContactFallback
+        eyebrow={formType === 'concussion' ? 'Concussion program' : 'Request an appointment'}
+        heading="Call or email to get started"
+        body="Our online request form is briefly unavailable while we finish a secure upgrade. To reach our care team, call us or send an email and we will respond within one business day."
+        note="For your privacy, please do not include detailed medical information in your email. Call our office to discuss any health details."
+      />
+    )
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -67,10 +84,11 @@ export function AppointmentForm({ showTestimonial = false, formType = 'appointme
       company: String(data.get('company') ?? ''),
       formType,
       recaptchaToken,
+      renderedAt,
     }
 
     try {
-      const res = await fetch('/api/contact/', {
+      const res = await fetch('/api/appointment/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

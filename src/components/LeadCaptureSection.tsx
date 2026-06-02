@@ -2,6 +2,11 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { ContactFallback } from '@/components/ContactFallback'
+
+// Temporary: online forms are paused while the HIPAA secure email setup is
+// completed. Flip to true to restore the live lead capture form.
+const FORMS_ENABLED: boolean = false
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -59,8 +64,17 @@ export function LeadCaptureSection() {
           </p>
         </div>
 
-        <div className="lg:col-span-6 bg-white p-8 md:p-10">
-          {state === 'success' ? (
+        <div className="lg:col-span-6">
+          {!FORMS_ENABLED ? (
+            <ContactFallback
+              eyebrow="Free patient guide"
+              heading="Download the guide"
+              body="You can download the guide directly below. Questions about your neck or back? Call or email our care team and we will be glad to help."
+              download={{ href: '/ISS-Understanding-Your-Spine-Patient-Guide.pdf', label: 'Download Understanding Your Spine (PDF)' }}
+            />
+          ) : (
+            <div className="bg-white p-8 md:p-10">
+              {state === 'success' ? (
             <div role="status" aria-live="polite">
               <p className="font-heading text-2xl font-bold uppercase tracking-tight text-iss-ink">Thank you.</p>
               <p className="mt-4 text-iss-body font-light leading-relaxed">
@@ -126,6 +140,8 @@ export function LeadCaptureSection() {
                 </div>
               ) : null}
             </form>
+          )}
+            </div>
           )}
         </div>
       </div>
