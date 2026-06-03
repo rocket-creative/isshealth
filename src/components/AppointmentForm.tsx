@@ -98,21 +98,33 @@ export function AppointmentForm({ showTestimonial = false, formType = 'appointme
         throw new Error(body.error || 'Submission failed')
       }
 
-      if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
-        const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag
-        const conversionId = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID
-        const conversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL
-        if (conversionId && conversionLabel) {
-          gtag('event', 'conversion', {
-            send_to: `${conversionId}/${conversionLabel}`,
-            value: 50.0,
-            currency: 'USD',
-          })
-        }
-        gtag('event', 'appointment_request_submitted')
-      }
+      const redirect = () => router.push('/appointments/confirmed/')
+      const gtag =
+        typeof window !== 'undefined'
+          ? (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
+          : undefined
 
-      router.push('/appointments/confirmed/')
+      // Google Ads lead form conversion. The tag is only loaded on the
+      // concussion-program pages, so this only fires there; the appointments
+      // page submit (no tag) falls straight through to the redirect. No form
+      // contents or PHI are ever sent to the conversion.
+      if (typeof gtag === 'function') {
+        let navigated = false
+        const go = () => {
+          if (navigated) return
+          navigated = true
+          redirect()
+        }
+        gtag('event', 'conversion', {
+          send_to: 'AW-17987595919/UPqMCIryz4EcEI_dk4FD',
+          event_callback: go,
+        })
+        gtag('event', 'appointment_request_submitted')
+        // Fallback in case the conversion callback does not return promptly.
+        setTimeout(go, 1000)
+      } else {
+        redirect()
+      }
     } catch (err) {
       setState('error')
       setErrorMsg(err instanceof Error ? err.message : 'Submission failed')
