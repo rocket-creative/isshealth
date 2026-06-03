@@ -124,9 +124,10 @@ export default function HomePage() {
         <DraftCallout type="approve" source="Homepage local SEO">
           <p>
             Serving patients from across Westchester County and the greater New York area, including White Plains, Mt.
-            Kisco, Greenwich, Yonkers, and New York City. Our office is located at 244 Westchester Avenue, Suite 209,
-            West Harrison, NY 10604, with hospital affiliations at Northern Westchester Hospital, Westchester Medical
-            Center, and White Plains Hospital.
+            Kisco, Greenwich, Yonkers, and New York City. Our main office is located at 244 Westchester Avenue, Suite 209,
+            West Harrison, NY 10604, with a concussion center at 1985 Crompond Road, Suite B2, Cortlandt Manor, NY 10567,
+            and hospital affiliations at Northern Westchester Hospital, Westchester Medical Center, and White Plains
+            Hospital.
           </p>
         </DraftCallout>
       </section>

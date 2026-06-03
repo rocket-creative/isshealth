@@ -42,6 +42,13 @@ export function Footer() {
               (914) 948 3008
             </a>
           </address>
+
+          <p className="font-bold uppercase tracking-[0.18em] text-xs mb-4 mt-8 text-iss-coral">Concussion Center</p>
+          <address className="not-italic text-white/70 text-sm leading-relaxed font-light">
+            <p className="font-bold text-white">Institute For Spine Surgery</p>
+            <p className="mt-2">1985 Crompond Road, Suite B2</p>
+            <p>Cortlandt Manor, NY 10567</p>
+          </address>
         </div>
 
         <div>

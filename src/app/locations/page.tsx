@@ -38,7 +38,8 @@ export default function LocationsPage() {
         <p className="font-body text-xs uppercase tracking-[0.22em] text-iss-teal font-bold">Where to find us</p>
         <h1 className="mt-4 font-gotham font-bold text-iss-ink text-h1 uppercase">Westchester&apos;s home for spine care.</h1>
         <p className="mt-5 max-w-prose text-iss-body text-lg font-light leading-relaxed">
-          Our main office is located at 244 Westchester Avenue in West Harrison, New York.
+          Our main office is located at 244 Westchester Avenue in West Harrison, New York, and our concussion center is
+          located at 1985 Crompond Road in Cortlandt Manor, New York.
         </p>
       </header>
 
@@ -65,9 +66,10 @@ export default function LocationsPage() {
               Getting Here
             </h2>
             <p className="mt-4 text-iss-body font-light leading-relaxed max-w-prose">
-              The office sits along the Westchester Avenue corridor in West Harrison, with easy access from I-287 and the
-              Hutchinson River Parkway. The nearest Metro North stations are White Plains and Rye on the New Haven Line, a
-              short drive away. Turn by turn directions are available through the map on this page.
+              The West Harrison office sits along the Westchester Avenue corridor, with easy access from I-287 and the
+              Hutchinson River Parkway. Our Cortlandt Manor concussion center sits on Crompond Road (Route 202), convenient
+              to the Taconic State Parkway. Turn by turn directions for both offices are available through the maps on this
+              page.
             </p>
           </div>
         </div>

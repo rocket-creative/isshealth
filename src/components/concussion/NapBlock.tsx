@@ -13,11 +13,21 @@ export function NapBlock() {
       <AnimateOnScroll animation="up">
         <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">Visit us</p>
         <h2 id="nap-heading" className="mt-3 font-heading text-h2">
-          Our location.
+          Our locations.
         </h2>
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl">
         <div>
-          <p className="font-body text-[11px] uppercase tracking-[0.18em] font-bold text-iss-body/70">Office</p>
+          <p className="font-body text-[11px] uppercase tracking-[0.18em] font-bold text-iss-body/70">Concussion Center</p>
+          <address className="mt-2 not-italic text-iss-body font-light leading-relaxed">
+            Institute For Spine Surgery
+            <br />
+            1985 Crompond Road, Suite B2
+            <br />
+            Cortlandt Manor, NY 10567
+          </address>
+        </div>
+        <div>
+          <p className="font-body text-[11px] uppercase tracking-[0.18em] font-bold text-iss-body/70">Main Office</p>
           <address className="mt-2 not-italic text-iss-body font-light leading-relaxed">
             Institute For Spine Surgery
             <br />
