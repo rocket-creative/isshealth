@@ -53,17 +53,17 @@ export default function LumbarCenterPage() {
             <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">Common Diagnoses</p>
             <h2 className="mt-4 font-heading text-h2">Conditions treated at the Lumbar Center.</h2>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
             <Link
               href="/the-lumbar-center/non-surgical-options/"
-              className="btn-arrow inline-flex items-center gap-2 border border-iss-teal text-iss-teal hover:bg-iss-teal hover:text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] transition-colors"
+              className="btn-arrow inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-iss-teal text-iss-teal hover:bg-iss-teal hover:text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] transition-colors"
             >
               <span>Non Surgical Options</span>
               <span className="arrow">→</span>
             </Link>
             <Link
               href="/the-lumbar-center/surgical-options/"
-              className="btn-arrow inline-flex items-center gap-2 bg-iss-teal hover:bg-iss-teal-dark text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] transition-colors"
+              className="btn-arrow inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-iss-teal hover:bg-iss-teal-dark text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] transition-colors"
             >
               <span>Surgical Options</span>
               <span className="arrow">→</span>

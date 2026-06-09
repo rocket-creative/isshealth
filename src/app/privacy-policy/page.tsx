@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { buildMetadata, toCanonicalUrl } from '@/lib/metadata'
 import { PAGE_SEO } from '@/content/page-seo'
 import { JsonLd, webPageSchema, breadcrumbSchema } from '@/lib/schema'
@@ -87,13 +86,9 @@ export default function PrivacyPolicyPage() {
             <p className="mt-4 text-iss-body font-light leading-relaxed">
               This policy does <strong className="font-bold">not</strong> cover protected health information that we create
               or maintain as part of caring for you as a patient. That information is governed by the Health Insurance
-              Portability and Accountability Act (HIPAA) and is described in our separate{' '}
-              <Link href="/notice-of-privacy-practices/" className="text-iss-teal font-bold link-underline">
-                Notice of Privacy Practices
-              </Link>
-              , which you can find online or request from our office. If anything in this policy appears to conflict with our
-              Notice of Privacy Practices regarding your protected health information, the Notice of Privacy Practices
-              controls.
+              Portability and Accountability Act (HIPAA) and is described in our separate Notice of Privacy Practices, which
+              you can request from our office. If anything in this policy appears to conflict with our Notice of Privacy
+              Practices regarding your protected health information, the Notice of Privacy Practices controls.
             </p>
           </div>
 
@@ -349,11 +344,8 @@ export default function PrivacyPolicyPage() {
               </a>
             </address>
             <p className="mt-4 text-iss-body font-light leading-relaxed">
-              For questions specifically about your protected health information or our HIPAA practices, please refer to our{' '}
-              <Link href="/notice-of-privacy-practices/" className="text-iss-teal font-bold link-underline">
-                Notice of Privacy Practices
-              </Link>{' '}
-              or contact our Privacy Officer at{' '}
+              For questions specifically about your protected health information or our HIPAA practices, please refer to our
+              Notice of Privacy Practices, available from our office, or contact our Privacy Officer at{' '}
               <a href="mailto:info@nybrainspine.com" className="text-iss-teal font-bold link-underline">
                 info@nybrainspine.com
               </a>

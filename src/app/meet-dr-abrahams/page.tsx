@@ -68,17 +68,17 @@ export default function MeetDrAbrahamsPage() {
               over 150 surgical procedures per year, with a practice that focuses on anterior cervical fusion and posterior lumbar
               fusion.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <Link
                 href="#appointment"
-                className="btn-arrow inline-flex items-center gap-3 bg-iss-coral-dark hover:bg-iss-coral text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors"
+                className="btn-arrow inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-iss-coral-dark hover:bg-iss-coral text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors"
               >
                 <span>Request Consultation</span>
                 <span className="arrow">→</span>
               </Link>
               <a
                 href="tel:+19149483008"
-                className="inline-flex items-center gap-3 bg-white text-iss-teal-dark hover:bg-iss-alt px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-white text-iss-teal-dark hover:bg-iss-alt px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors"
               >
                 (914) 948 3008
               </a>

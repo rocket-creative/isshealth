@@ -221,17 +221,17 @@ export function BottomCta() {
           Institute For Spine Surgery. Our expert team guides you through a personalized plan for optimal recovery.
         </p>
         <TrustSignals className="mt-6 text-white/75" />
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
           <Link
             href="/appointments/"
-            className="btn-arrow inline-flex items-center gap-3 bg-iss-coral-dark hover:bg-iss-coral text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            className="btn-arrow inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-iss-coral-dark hover:bg-iss-coral text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
           >
             <span>Schedule Your Consultation</span>
             <span className="arrow">→</span>
           </Link>
           <a
             href="tel:+19149483008"
-            className="inline-flex items-center gap-3 border border-white/40 hover:bg-white/10 text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-3 border border-white/40 hover:bg-white/10 text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
           >
             Call (914) 948 3008
           </a>

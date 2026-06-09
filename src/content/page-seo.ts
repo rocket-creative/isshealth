@@ -118,11 +118,6 @@ export const PAGE_SEO = {
     description:
       'How the Institute For Spine Surgery website collects, uses, and protects information submitted through this site.',
   },
-  noticeOfPrivacyPractices: {
-    title: 'Notice of Privacy Practices | Institute For Spine Surgery',
-    description:
-      'The Institute For Spine Surgery Notice of Privacy Practices explains how your health information may be used and disclosed and your rights regarding that information.',
-  },
 } satisfies Record<string, PageSeo>
 
 export const CONDITION_SEO: Record<string, PageSeo> = {

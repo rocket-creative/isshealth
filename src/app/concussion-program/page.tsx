@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Download } from 'lucide-react'
 import { buildMetadata, toCanonicalUrl } from '@/lib/metadata'
 import { PAGE_SEO } from '@/content/page-seo'
 import {
@@ -235,6 +236,35 @@ export default function ConcussionProgramPage() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Program guide download */}
+      <section className="bg-white px-6 lg:px-12 py-12 md:py-16" aria-labelledby="guide-heading">
+        <AnimateOnScroll animation="up">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center bg-iss-alt p-8 md:p-10 border-l-4 border-iss-teal">
+            <div className="lg:col-span-8">
+              <p className="font-body text-xs uppercase tracking-[0.2em] text-iss-teal font-bold">More information</p>
+              <h2 id="guide-heading" className="mt-3 font-heading text-h2">
+                Download the concussion program guide.
+              </h2>
+              <p className="mt-4 text-iss-body font-light leading-relaxed max-w-prose">
+                A printable one page overview of our concussion and brain injury program. It covers the four steps of
+                structured care, objective neurological assessment, and symptom tracking with the Kavera platform. No referral
+                needed. Keep it for an appointment or share it with family, a coach, or a school.
+              </p>
+            </div>
+            <div className="lg:col-span-4 lg:justify-self-end">
+              <a
+                href="/ISS-Concussion-Program-Guide.pdf"
+                download
+                className="btn-arrow inline-flex items-center justify-center gap-3 bg-iss-teal hover:bg-iss-teal-dark text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors focus-visible:ring-2 focus-visible:ring-iss-teal focus-visible:outline-none min-h-[44px]"
+              >
+                <Download size={18} aria-hidden="true" />
+                <span>Download the guide (PDF)</span>
+              </a>
+            </div>
+          </div>
+        </AnimateOnScroll>
       </section>
 
       <ClusterNav currentPath={PATH} />

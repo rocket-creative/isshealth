@@ -83,17 +83,17 @@ export default function HomePage() {
                 services.
               </p>
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <Link
                 href="/providers/"
-                className="btn-arrow inline-flex items-center gap-2 bg-iss-teal hover:bg-iss-teal-dark text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] transition-colors"
+                className="btn-arrow inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-iss-teal hover:bg-iss-teal-dark text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] transition-colors"
               >
                 <span>Meet Our Providers</span>
                 <span className="arrow">→</span>
               </Link>
               <Link
                 href="/innovations/"
-                className="btn-arrow inline-flex items-center gap-2 border border-iss-teal text-iss-teal hover:bg-iss-teal hover:text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] transition-colors"
+                className="btn-arrow inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-iss-teal text-iss-teal hover:bg-iss-teal hover:text-white px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] transition-colors"
               >
                 <span>Our Innovations</span>
                 <span className="arrow">→</span>
